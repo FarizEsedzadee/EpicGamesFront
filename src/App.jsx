@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-     Salam ureyim necesen
+     yaxsi sagol topragim sen necesen?
     </>
   )
 }
