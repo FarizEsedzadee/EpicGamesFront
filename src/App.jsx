@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import SignIn from "./components/SignIn"
 import './App.css'
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <>
-     <p className='text-red-500'>yaxsi sagol topragim sen necesen?</p>
+    <SignIn />
     </>
   )
 }
