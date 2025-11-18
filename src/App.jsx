@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-     yaxsi sagol topragim sen necesen?
+     <p className='text-red-500'>yaxsi sagol topragim sen necesen?</p>
     </>
   )
 }
