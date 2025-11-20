@@ -8,11 +8,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      
-      <Route path="/signup" element={<SignUp />} />
-    </Routes>
+    <div className="bg-[#101014] text-white min-h-screen">
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/register" element={<SignUp />} />
+      </Routes>
+    </div>
   )
 }
 
