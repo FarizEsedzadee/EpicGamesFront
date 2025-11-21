@@ -6,7 +6,7 @@ import SignUpInfoMessage from '../components/SignUp/SignupInfoMessage'
 
 export default function SignUp() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-black px-4">
+        <div className="min-h-screen flex items-center justify-center px-4">
            <SignUpQuestions />
            <SignUpInfoMessage />
         </div>
