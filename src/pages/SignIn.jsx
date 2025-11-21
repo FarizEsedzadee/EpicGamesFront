@@ -2,6 +2,12 @@ import React from 'react'
 import playstationImg from "../assets/images/playstation.jpg";
 import xboxImg from "../assets/images/x-box.png";
 import steamImg from "../assets/images/steam.png";
+import apple from "../assets/images/apple.png";
+import nintendo from "../assets/images/nintendo.png";
+import google from "../assets/images/google.png";
+import facebook from "../assets/images/facebook.png";
+import lego from "../assets/images/lego.png";
+import vkontakte from "../assets/images/vkontakte.png";
 import SocialSign from '../components/ui/SocialSign';
 
 export default function SignIn() {
@@ -14,6 +20,7 @@ export default function SignIn() {
         <p className=' text-center text-[#7b7b7d] font-semibold'>Sadece konsoldamı oynadın? İlerleme durumlarına ve satın alımlarına erişmek için giriş yap.</p>
         <SocialSign image={playstationImg} title="PlayStation™Network" />
         <SocialSign image={xboxImg} title="Xbox" />
+        <SocialSign image={nintendo} title="Nintendo Hesabı" />
       </div>
       <div className='flex flex-col gap-[20px] justify-between w-full border border-gray-700 rounded-[15px] p-[16px]'>
         <p className="text-center text-[#7b7b7d] font-semibold">PC ve ya mobilde mi oynadın?</p>
@@ -28,7 +35,12 @@ export default function SignIn() {
       </div>
       <div className='flex flex-col gap-[16px] w-full border border-gray-700 rounded-[15px] text-center p-[16px]'>
         <span className='text-[#7b7b7d] font-semibold my-[10px]'>Diğer giriş yapma yolları</span>
-        <SocialSign image={playstationImg} title="PlayStation™Network" />
+        <SocialSign image={google} title="PlayStation™Network" />
+        <SocialSign image={steamImg} title="PlayStation™Network" />
+        <SocialSign image={apple} title="PlayStation™Network" />
+        <SocialSign image={facebook} title="PlayStation™Network" />
+        <SocialSign image={lego} title="PlayStation™Network" />
+        <SocialSign image={vkontakte} title="PlayStation™Network" />
       </div>
       <div className='flex flex-col pt-[30px] gap-[16px] w-[464px] justify-center items-center'>
         <a href="" className='text-[#26bbff]'>Giriş yapmakta sorunmu yaşıyorsun?</a>
