@@ -4,7 +4,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 
 export default function SignupInfoMessage() {
     return (
-        <div className="w-full max-w-[560px] border border-gray-700 bg-[#18181c] p-8 my-5 rounded-xl shadow-lg shadow-black/40 space-y-6">
+        <div className="w-full max-w-[560px] border border-[#29292c] bg-[#18181c] p-8 my-5 rounded-xl shadow-lg shadow-black/40 space-y-6">
             <div className="top">
                 <BackButton />
                 <div className='flex items-center justify-center'><RiErrorWarningLine className="text-yellow-500 text-[5rem] mb-4" /></div>

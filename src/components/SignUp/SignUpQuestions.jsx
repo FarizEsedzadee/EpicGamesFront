@@ -4,7 +4,7 @@ import firstPartyGamesImage from '../../assets/images/first-party-games.png'
 
 export default function SignUpQuestions() {
     return (
-        <div className="w-full max-w-[560px] border border-gray-700 bg-[#18181c] p-8 my-5 rounded-xl shadow-lg shadow-black/40 space-y-6">
+        <div className="w-full max-w-[560px] border border-[#29292c] bg-[#18181c] p-8 my-5 rounded-xl shadow-lg shadow-black/40 space-y-6">
 
             <div>
                 <BackButton />
