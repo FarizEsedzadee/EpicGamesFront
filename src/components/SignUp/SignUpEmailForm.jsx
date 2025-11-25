@@ -14,7 +14,7 @@ export default function SignUpEmailForm() {
                 <h1 className="text-white text-[1.5rem] font-bold leading-tight">E-posta adresin nedir?</h1>
             </div>
             <div className="bottom flex flex-col gap-4 mt-[32px]">
-                <Label className="text-[#adadaf]">Doğum tarihi</Label>
+                <Label className="text-[#adadaf]">E-posta adresi</Label>
                 <Input type="email" placeholder="E-posta adresinizi girin" className="border- border-[#39393c] bg-[#242428] text-white p-[24px_20px] rounded-lg w-full" />
             </div>
             <button className="w-full py-3 rounded-lg bg-[#26bbff] text-black font-medium hover:bg-[#3d3d42] transition cursor-pointer mt-[20px]">
