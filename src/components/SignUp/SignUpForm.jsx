@@ -77,37 +77,28 @@ export default function SignUpForm() {
                 </Select>
 
                 <div className="flex items-start gap-3">
-                    <Checkbox id="tos" className="mt-1" />
-                    <Label htmlFor="tos" className="text-[14px] text-[#cccccc]">
-                        I have read and agree to the{" "}
-                        <a href="#" className="text-[#26bbff] underline">
-                            Terms of Service
-                        </a>{" "}
-                        and the{" "}
-                        <a href="#" className="text-[#26bbff] underline">
-                            Epic Games Store End User License Agreement
-                        </a>
+                    <Checkbox id="tos" className="mt-1 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500" />
+                    <Label htmlFor="tos" className="text-[14px] text-[#cccccc] font-[400] leading-[140%] whitespace-break-spaces">
+                        Hizmet Şartları'nı okudum ve onaylıyorum
                     </Label>
                 </div>
 
-                {/* Remember Me */}
                 <div className="flex items-start gap-3">
-                    <Checkbox id="remember" defaultChecked className="mt-1" />
-                    <Label htmlFor="remember" className="text-[14px] text-[#cccccc]">
-                        Remember me in games and apps that use Epic Games to sign in{" "}
-                        <span className="text-[#888888]">(optional)</span>
-                    </Label>
+                    <Checkbox id="remember" defaultChecked className="mt-1 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500" />
+                    <label for="remember" className="text-[14px] text-[#cccccc] font-[400] leading-[140%] whitespace-break-spaces">
+                        Giriş yapmam için Epic Games'i kullanan oyunlarda ve uygulamalarda beni hatırla {" "} <span className='text-[#888888]'>(isteğe bağlı)</span>
+                    </label>
                 </div>
 
-                {/* Send News */}
                 <div className="flex items-start gap-3">
                     <Checkbox
                         id="news"
                         className="mt-1 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
-                    />                    <Label htmlFor="news" className="text-[14px] text-[#cccccc]">
-                        Send news, surveys, and offers from Epic Games{" "}
-                        <span className="text-[#888888]">(Optional)</span>
-                    </Label>
+                    />
+                    <label for="news" className="text-[14px] text-[#cccccc] font-[400] leading-[140%] whitespace-break-spaces">
+                        Bana Epic Games'ten haberleri, anketleri ve teklifleri gönder{" "}
+                        <span className="text-[#888888]">(İsteğe bağlı)</span>
+                    </label>
                 </div>
 
             </div>
@@ -115,6 +106,8 @@ export default function SignUpForm() {
             <button className="w-full py-3 rounded-lg bg-[#26bbff] text-black font-medium hover:bg-[#3d3d42] transition cursor-pointer mt-[20px]">
                 Devam Et
             </button>
+
+            <span>Zaten bir hesabın var mı? <a className='underline text-blue-300' href="#">Oturum aç</a></span>
         </div>
     )
 }
