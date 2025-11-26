@@ -1,53 +1,12 @@
 import React from 'react'
-import playstationImg from "../assets/images/playstation.jpg";
-import xboxImg from "../assets/images/x-box.png";
-import steamImg from "../assets/images/steam.png";
-import apple from "../assets/images/apple.png";
-import nintendo from "../assets/images/nintendo.png";
-import google from "../assets/images/google.png";
-import facebook from "../assets/images/facebook.png";
-import lego from "../assets/images/lego.png";
-import vkontakte from "../assets/images/vkontakte.png";
-import SocialSign from '../components/ui/SocialSign';
-import ConsoleLoginOptions from '../components/SignIn/ConsoleLoginOptions';
+import LoginFirstScreen from '../components/SignIn/LoginFirstScreen';
+import LoginPasswordForm from '@/components/SignIn/LoginPasswordForm';
+
 
 export default function SignIn() {
   return (
-    <div className='max-w-[560px] my-[30px] mx-auto p-[48px] flex flex-col gap-[16px] items-center justify-center bg-[#18181c] rounded-[25px]'>
-      <div >
-        <h1 className="text-white text-[24px] font-bold pb-[16px]">Epic Games'e giriş yap</h1>
-      </div>
-     <ConsoleLoginOptions />
-     
-     
-
-      <div className='flex flex-col gap-[20px] justify-between w-full border border-gray-700 rounded-[15px] p-[16px]'>
-        <p className="text-center text-[#7b7b7d] font-semibold">PC ve ya mobilde mi oynadın?</p>
-        <label>
-           <span className='text-[#7b7b7d] font-semibold'>E-posta ile giriş yap</span>
-          <input type="text" className="w-full p-[10px_20px] bg-[#202024] rounded-[10px] mt-[5px] border-[#7b7b7d] border-[1px]  " />
-        </label>
-        <button className="w-full bg-[#26bbff] p-[10px] rounded-[10px] font-semibold cursor-pointer">Devam Et</button>
-      </div>
-
-      <div className='flex w-full py-[16px] border border-gray-700 rounded-[15px] justify-center items-center'>
-        <span className="text-white">Burada yenimisin? <a href="" className='text-blue-400 underline'>Hesap oluştur</a></span>
-      </div>
-      <div className='flex flex-col gap-[16px] w-full border border-gray-700 rounded-[15px] text-center p-[16px]'>
-        <span className='text-[#7b7b7d] font-semibold my-[10px]'>Diğer giriş yapma yolları</span>
-        <SocialSign image={google} title="PlayStation™Network" />
-        <SocialSign image={steamImg} title="PlayStation™Network" />
-        <SocialSign image={apple} title="PlayStation™Network" />
-        <SocialSign image={facebook} title="PlayStation™Network" />
-        <SocialSign image={lego} title="PlayStation™Network" />
-        <SocialSign image={vkontakte} title="PlayStation™Network" />
-      </div>
-
-    
-      <div className='flex flex-col pt-[30px] gap-[16px] w-[464px] justify-center items-center'>
-        <a href="" className='text-[#26bbff]'>Giriş yapmakta sorunmu yaşıyorsun?</a>
-        <a href="" className='text-[#26bbff]'>Gizlilik politikası</a>
-      </div>
+    <div className="max-w-[560px] mt-[40px] mx-auto h-screen">
+      <LoginPasswordForm  />
     </div>
   )
 }
