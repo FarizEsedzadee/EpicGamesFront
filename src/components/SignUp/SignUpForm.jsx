@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import BackButton from '../ui/BackButton';
 import { Label } from '../ui/Label';
 import { Input } from '../ui/Input';
-
-import SocialSign from '../ui/SocialSign';
-import appleImg from '../../assets/images/apple.png';
-import googleImg from '../../assets/images/google.png';
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import axios from 'axios';
 import { Checkbox } from '../ui/checkbox';
@@ -106,8 +102,9 @@ export default function SignUpForm() {
             <button className="w-full py-3 rounded-lg bg-[#26bbff] text-black font-medium hover:bg-[#3d3d42] transition cursor-pointer mt-[20px]">
                 Devam Et
             </button>
-
-            <span>Zaten bir hesabın var mı? <a className='underline text-blue-300' href="#">Oturum aç</a></span>
+            <div className="flex items-center justify-center text-[#cccccc]">
+                <span>Zaten bir hesabın var mı? <a className='underline text-blue-300' href="#">Oturum aç</a></span>
+            </div>
         </div>
     )
 }
