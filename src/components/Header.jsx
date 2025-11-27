@@ -6,6 +6,14 @@ import { CiGlobe } from "react-icons/ci";
 import { Button } from './ui/button'
 import BackButton from './ui/BackButton';
 import { useState } from "react";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { motion, AnimatePresence } from "framer-motion";
+const variants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -10 }
+};
+
 
 
 export default function Header() {
@@ -13,8 +21,9 @@ export default function Header() {
     return (
         <div id="header" className="flex items-center justify-between p-3">
             <div className="left flex items-center gap-3">
-                <a className="logo">
+                <a className="logo flex items-center">
                     <img src={EpicLogo} alt="Logo" width={40} height={40} />
+                    <IoIosArrowDown className='text-[13px] text-gray-400' />
                 </a>
                 <a href="#" className="uppercase">Store</a>
             </div>
@@ -53,67 +62,89 @@ export default function Header() {
 
                         <div className='flex items-center justify-end gap-3 mt-4'>
                             <CiGlobe className='text-[24px]' />
-                            <Button className="bg-[#343437] p-[0_10px] text-[14px]">Giriş Yap</Button>
+                            <Button className="bg-[#343437] p-[0_10px] text-[14px]"><a href="/login">Giriş Yap</a></Button>
                         </div>
 
-                        {showDistribution == false &&
-                            <div className="flex flex-col items-start gap-4 mt-4 px-3">
-                                <h2 className='text-[32px] tracking-[-0.07rem] font-extrabold'>Menü</h2>
-                                <a href="/support">Destek</a>
-                                <button onClick={() => setShowDistribution(true)}>Dağıtım Yap</button>
-                            </div>}
 
-                        {showDistribution && <div className="flex flex-col gap-6">
-                            <BackButton onClick={() => setShowDistribution(false)} className="px-3" />
+                        <AnimatePresence mode="wait">
+                            {/* Menu Panel */}
+                            {!showDistribution &&
+                                <motion.div
+                                    key="menu"
+                                    variants={variants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="hidden"
+                                    transition={{ duration: 0.18, ease: "easeOut" }}
+                                    className="flex flex-col items-start gap-4 mt-4 px-3">
+                                    <h2 className='text-[32px] tracking-[-0.07rem] font-extrabold'>Menü</h2>
+                                    <a className='w-full' href="/support">Destek</a>
+                                    <button className='flex items-center justify-between w-full' onClick={() => setShowDistribution(true)}>Dağıtım Yap <IoIosArrowForward /></button>
+                                </motion.div>
+                            }
 
-                            <h2 className="text-[32px] tracking-[-0.07rem] font-extrabold px-3">
-                                Dağıtım Yap
-                            </h2>
+                            {/* Dağıtım Panel */}
+                            {showDistribution &&
+                                <motion.div
+                                    key="distribution"
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="hidden"
+                                    transition={{ duration: 0.18, ease: "easeOut" }}
+                                    className="flex flex-col gap-6">
+                                    <BackButton onClick={() => setShowDistribution(false)} className="px-3" />
 
-                            <ul className="flex flex-col gap-2">
-                                <li>
-                                    <a
-                                        target="_blank"
-                                        href="https://store.epicgames.com/tr"
-                                        className="block w-full px-4 py-3 rounded-lg
+                                    <h2 className="text-[32px] tracking-[-0.07rem] font-extrabold px-3">
+                                        Dağıtım Yap
+                                    </h2>
+
+                                    <ul className="flex flex-col gap-2">
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://store.epicgames.com/tr"
+                                                className="block w-full px-4 py-3 rounded-lg
                                         hover:bg-[#2a2a2f] transition-colors"
-                                    >
-                                        Epic Games Store'da Dağıtım Yap
-                                    </a>
-                                </li>
+                                            >
+                                                Epic Games Store'da Dağıtım Yap
+                                            </a>
+                                        </li>
 
-                                <li>
-                                    <a target="_blank"
-                                        href="https://forums.unrealengine.com/categories?tag=epic-games-store"
-                                        className="block w-full px-4 py-3 rounded-lg hover:bg-[#2a2a2f] transition-colors"
-                                    >
-                                        Geliştirici Forumları
-                                    </a>
-                                </li>
+                                        <li>
+                                            <a target="_blank"
+                                                href="https://forums.unrealengine.com/categories?tag=epic-games-store"
+                                                className="block w-full px-4 py-3 rounded-lg hover:bg-[#2a2a2f] transition-colors"
+                                            >
+                                                Geliştirici Forumları
+                                            </a>
+                                        </li>
 
-                                <li>
-                                    <a
-                                        target="_blank"
-                                        href="https://dev.epicgames.com/docs/epic-games-store"
-                                        className="block w-full px-4 py-3 rounded-lg
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://dev.epicgames.com/docs/epic-games-store"
+                                                className="block w-full px-4 py-3 rounded-lg
                                         hover:bg-[#2a2a2f] transition-colors"
-                                    >
-                                        Dokümantasyon
-                                    </a>
-                                </li>
+                                            >
+                                                Dokümantasyon
+                                            </a>
+                                        </li>
 
-                                <li>
-                                    <a
-                                        target="_blank"
-                                        href="https://dev.epicgames.com/community/epic-games-store/learning"
-                                        className="block w-full px-4 py-3 rounded-lg
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://dev.epicgames.com/community/epic-games-store/learning"
+                                                className="block w-full px-4 py-3 rounded-lg
                                         hover:bg-[#2a2a2f] transition-colors"
-                                    >
-                                        Öğrenme
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>}
+                                            >
+                                                Öğrenme
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </motion.div>}
+                        </AnimatePresence>
+
+
 
                     </SheetContent>
 
