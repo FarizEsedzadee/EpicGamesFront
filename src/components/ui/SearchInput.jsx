@@ -12,9 +12,9 @@ export default function SearchInput() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="p-3 bg-[#2a2a2d] rounded-full flex items-center justify-center"
+          className="p-3 rounded-full flex items-center justify-center"
         >
-          <Search className="text-white" size={20} />
+          <Search className="text-white" size={18} />
         </button>
       )}
 
@@ -29,7 +29,7 @@ export default function SearchInput() {
           >
             {/* TOP SEARCH BAR */}
             <div className="flex items-center gap-3">
-              <Search className="text-white opacity-80" size={22} />
+              <Search className="text-white opacity-80" size={18} />
 
               <input
                 autoFocus
