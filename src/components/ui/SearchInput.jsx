@@ -1,54 +1,18 @@
-"use client"
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Search, X } from "lucide-react"
+import React from 'react'
 
 export default function SearchInput() {
-  const [open, setOpen] = useState(false)
+    return (
+        <div>
+            <form class="max-w-md mx-auto">
+                <label for="search" class="block mb-2.5 text-sm font-medium text-heading sr-only">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" /></svg>
+                    </div>
+                    <input type="text" id="search" class="block w-full p-3 ps-9 bg-[#202024] text-[#b1b1b3] text-sm rounded-base shadow-xs placeholder:text-body rounded-[50px] border-none placeholder-[#b1b1b3] placeholder:text-[13px] focus:border-none focus:bg-[#404044] focus:ring-none outline-none" placeholder="Mağazada Ara" />
+                </div>
+            </form>
 
-  return (
-    <>
-      {/* SMALL COMPACT SEARCH */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="p-3 rounded-full flex items-center justify-center"
-        >
-          <Search className="text-white" size={18} />
-        </button>
-      )}
-
-      {/* FULLSCREEN SEARCH */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 p-4"
-          >
-            {/* TOP SEARCH BAR */}
-            <div className="flex items-center gap-3">
-              <Search className="text-white opacity-80" size={18} />
-
-              <input
-                autoFocus
-                placeholder="Mağazada ara"
-                className="flex-1 bg-transparent text-white text-lg outline-none placeholder:text-gray-400"
-              />
-
-              <button onClick={() => setOpen(false)}>
-                <X className="text-white" size={24} />
-              </button>
-            </div>
-
-            {/* CONTENT BELOW (scroll area) */}
-            <div className="mt-6 overflow-y-auto h-[80vh]">
-              <p className="text-gray-400">Arama sonuçları buraya gelecek...</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  )
+        </div>
+    )
 }

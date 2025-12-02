@@ -3,8 +3,8 @@ import EpicLogo from "@/assets/images/epic-logo.png"
 import { Sheet, SheetContent, SheetClose, SheetTrigger } from '../ui/sheet'
 import { Menu, X } from 'lucide-react'
 import { CiGlobe } from "react-icons/ci";
-import { Button } from '../ui/button'
-import BackButton from '../ui/BackButton';
+import { Button } from '@/components/ui/button'
+import BackButton from '@/components/ui/BackButton';
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,7 +20,6 @@ import TwinmotionLogo from "@/assets/images/logo/TwinmotionLogo.svg";
 import RealityScanLogo from "@/assets/images/logo/RealityScanLogo.svg";
 import EpicGamesLogo from "@/assets/images/logo/EpicGamesLogo.svg";
 import ServicesLogo from "@/assets/images/logo/ServicesLogo.svg";
-
 const variants = {
     hidden: { opacity: 0, x: -10 },
     visible: { opacity: 1, x: 0 },
@@ -34,13 +33,13 @@ export default function Header() {
     return (
         <>
             <header id='header' className="flex w-full items-center justify-between py-5 bg-[#121216] px-5 ">
-                <div className="left flex items-center gap-3">
+                <div className="left flex items-center gap-8">
                     <div className="relative group wrapper">
                         <div className="logo flex items-center cursor-pointer">
                             <img src={EpicLogo} alt="Logo" width={35} height={35} />
                             <IoIosArrowDown className='text-[13px] text-gray-400' />
-
-                            <ul className='hidden group-hover:flex absolute top-[120%] w-[500px] h-[300px] bg-[rgba(48,48,52,0.7)]
+                            <div></div>
+                            <ul className='hidden group-hover:flex absolute top-[120%] w-[550px] h-[300px] bg-[rgba(48,48,52,0.7)]
                                    backdrop-blur-[50px] rounded-[16px] border border-[rgba(255,255,255,0.1)]
                                    shadow-[0px_32px_16px_rgba(0,0,0,0.1), 0px_16px_8px_rgba(0,0,0,0.1), 0px_8px_4px_rgba(0,0,0,0.1), 0px_4px_2px_rgba(0,0,0,0.1), 0px_2px_1px_rgba(0,0,0,0.1)]
                                    justify-between items-start h-auto w-[38.75rem] list-none'
@@ -148,7 +147,7 @@ export default function Header() {
                         <img src={StoreImg} alt="Store" />
                     </a>
 
-                    <ul className='hidden md:flex items-center gap-3 text-[16px] ml-2'>
+                    <ul className='hidden md:flex items-center gap-8 text-[16px] ml-2'>
                         <li><a href="#">Destek</a></li>
                         <li className="relative group">
                             <button className="flex items-center gap-1">
