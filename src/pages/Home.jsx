@@ -3,6 +3,7 @@ import SecondHeader from '@/components/Header/SecondHeader'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from '@/components/ui/Card';
+import GameSlider from '@/components/Main/GameSlider';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -15,6 +16,10 @@ export default function Home() {
             <Header />
             <main className='sm:max-w-[770px] lg:max-w-[1050px] xl:max-w-[1185px] 2xl:max-w-[1240px] mx-auto py-3'>
                 <SecondHeader />
+
+                <div className="p-10">
+                    <GameSlider />
+                </div>
             </main>
         </div >
     )
