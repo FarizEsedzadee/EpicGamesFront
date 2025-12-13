@@ -1,7 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PlusCircle, Check } from 'lucide-react';
+import { useWishlist } from '@/contexts/WishlistContext';
 
 export default function FreeGameCard({ game, onButtonClick }) {
+  const wishlistContext = useWishlist();
+  const isInWishlist = wishlistContext?.isInWishlist || (() => false);
+  const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
+  const inWishlist = isInWishlist(game.gameId);
+
+  const handleWishlistClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(game);
+  };
+
   return (
     <Link to={`/game/${game.gameId}`} className="group cursor-pointer flex flex-col rounded-2xl overflow-hidden">
       {/* Top Section - Image Only */}
@@ -12,6 +25,19 @@ export default function FreeGameCard({ game, onButtonClick }) {
             alt={game.title}
             className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
+          <div className="absolute top-2 right-2 transition-opacity">
+            <button 
+              onClick={handleWishlistClick}
+              className={`p-1.5 rounded-full transition-colors ${
+                inWishlist 
+                  ? 'bg-white text-black hover:bg-gray-200' 
+                  : 'bg-black/70 text-white hover:bg-black'
+              }`}
+              title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
+            >
+              {inWishlist ? <Check size={18} /> : <PlusCircle size={18} />}
+            </button>
+          </div>
         </div>
 
         {/* Bottom Section - Blue CTA Button */}

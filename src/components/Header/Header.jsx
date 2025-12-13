@@ -32,10 +32,10 @@ export default function Header() {
     const [showDistribution, setShowDistribution] = useState(false);
     return (
         <>
-            <header id='header' className="flex w-full items-center justify-between py-5 bg-[#121216] px-5 relative z-50">
+            <header id='header' className="flex w-full items-center justify-between py-5 bg-[#121216] px-5 relative z-[60]">
                 <div className="left flex items-center gap-8">
-                    <div className="relative group wrapper z-50">
-                        <div className="logo flex items-center cursor-pointer relative z-50">
+                    <div className="relative group wrapper z-[60]">
+                        <div className="logo flex items-center cursor-pointer relative z-[60]">
                             <img src={EpicLogo} alt="Logo" width={35} height={35} />
                             <IoIosArrowDown className='text-[13px] text-gray-400' />
                             <div></div>
@@ -44,7 +44,7 @@ export default function Header() {
                             <ul className='hidden group-hover:flex absolute top-[calc(100%+1rem)] left-0 w-[550px] h-[300px] bg-[rgba(48,48,52,0.7)]
                                    backdrop-blur-[50px] rounded-[16px] border border-[rgba(255,255,255,0.1)]
                                    shadow-[0px_32px_16px_rgba(0,0,0,0.1), 0px_16px_8px_rgba(0,0,0,0.1), 0px_8px_4px_rgba(0,0,0,0.1), 0px_4px_2px_rgba(0,0,0,0.1), 0px_2px_1px_rgba(0,0,0,0.1)]
-                                   justify-between items-start h-auto w-[38.75rem] list-none z-50 pointer-events-auto'
+                                   justify-between items-start h-auto w-[38.75rem] list-none z-[60] pointer-events-auto'
                             >
                                 <li className='flex-1'>
                                     <ul className='flex flex-col justify-between items-start h-full border-r border-[rgba(255,255,255,0.1)]'>
@@ -151,13 +151,13 @@ export default function Header() {
 
                     <ul className='hidden md:flex items-center gap-8 text-[16px] ml-2'>
                         <li><a href="#">Destek</a></li>
-                        <li className="relative group z-50">
-                            <button className="flex items-center gap-1 relative z-50">
+                        <li className="relative group z-[60]">
+                            <button className="flex items-center gap-1 relative z-[60]">
                                 Dağıtım Yap <IoIosArrowDown />
                             </button>
                             {/* Invisible bridge to prevent dropdown from closing */}
                             <div className="absolute top-full left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-                            <div className="absolute left-0 top-[calc(100%+1rem)] hidden group-hover:block bg-[#292a32] w-[280px] p-3 rounded-md shadow-2xl text-[16px] border border-[#3f3f43] z-50 pointer-events-auto">
+                            <div className="absolute left-0 top-[calc(100%+1rem)] hidden group-hover:block bg-[#292a32] w-[280px] p-3 rounded-md shadow-2xl text-[16px] border border-[#3f3f43] z-[60] pointer-events-auto">
                                 <ul className="flex flex-col gap-2 text-sm">
                                     <li className="hover:bg-[#1e1e21] p-[10px_12px] rounded">Epic Games Store'da Dağıtım Yap</li>
                                     <li className="hover:bg-[#1e1e21] p-[10px_12px] rounded">Geliştirici Forumları</li>

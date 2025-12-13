@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { PlusCircle } from "lucide-react";
+import { PlusCircle, Check } from "lucide-react";
+import { useWishlist } from '@/contexts/WishlistContext';
 
 export default function BrowseGameCard({ game }) {
+  const wishlistContext = useWishlist();
+  const isInWishlist = wishlistContext?.isInWishlist || (() => false);
+  const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
+  const inWishlist = isInWishlist(game.gameId);
+
+  const handleWishlistClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(game);
+  };
+
   const formatPrice = (value, currency = '₺') => {
     if (value === null || value === undefined) return '';
     try {
@@ -26,9 +38,17 @@ export default function BrowseGameCard({ game }) {
           alt={game.title} 
           className="h-full object-cover transition-opacity duration-300 group-hover:opacity-90" 
         />
-        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="bg-black/70 p-1.5 rounded-full text-white hover:bg-black">
-            <PlusCircle size={18} />
+        <div className="absolute top-2 right-2 transition-opacity">
+          <button 
+            onClick={handleWishlistClick}
+            className={`p-1.5 rounded-full transition-colors ${
+              inWishlist 
+                ? 'bg-white text-black hover:bg-gray-200' 
+                : 'bg-black/70 text-white hover:bg-black'
+            }`}
+            title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
+          >
+            {inWishlist ? <Check size={18} /> : <PlusCircle size={18} />}
           </button>
         </div>
       </div>
