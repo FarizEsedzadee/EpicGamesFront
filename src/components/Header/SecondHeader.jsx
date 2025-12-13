@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchInputMobile from '@/components/ui/SearchInputMobile';
 import SearchInput from '@/components/ui/SearchInput';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -33,8 +34,8 @@ export default function SecondHeader() {
                         </div>
 
                         <ul className='hidden lg:flex flex gap-3'>
-                            <li className='p-3 hover:text-[1e1e21] transition'><a href="#">Keşfet</a></li>
-                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><a href="#">Göz At</a></li>
+                            <li className='p-3 hover:text-[1e1e21] transition'><Link to="/">Keşfet</Link></li>
+                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/browse">Göz At</Link></li>
                             <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><a href="#">Haberler</a></li>
                         </ul>
                     </div>
@@ -51,8 +52,8 @@ export default function SecondHeader() {
             {
                 showMenu && <div className='bg-[#101014] w-[90%] text-[14px] mx-auto p-5 shadow-xl mt-2'>
                     <ul className='flex flex-col gap-3'>
-                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><a href="#">Keşfet</a></li>
-                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><a href="#">Göz At</a></li>
+                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/">Keşfet</Link></li>
+                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/browse">Göz At</Link></li>
                         <li className='p-3 hover:text-[1e1e21] transition'><a href="#">Haberler</a></li>
                     </ul>
                 </div>

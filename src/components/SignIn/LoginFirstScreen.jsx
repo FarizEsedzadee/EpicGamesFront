@@ -1,14 +1,14 @@
 import React from 'react'
-import SocialSign from '../ui/SocialSign'
+import SocialSign from '@/components/ui/SocialSign'
 import ConsoleLoginOptions from './ConsoleLoginOptions'
 import EmailLoginForm from './EmailLoginForm'
 import AlternativeCreateLink from './AlternativeCreateLink'
-import google from "../../assets/images/google.png";
-import steamImg from "../../assets/images/steam.png";
-import apple from "../../assets/images/apple.png";
-import facebook from "../../assets/images/facebook.png";
-import lego from "../../assets/images/lego.png";
-import vkontakte from "../../assets/images/vkontakte.png";
+import google from "@/assets/images/logo/google.png";
+import steamImg from "@/assets/images/logo/steam.png";
+import apple from "@/assets/images/logo/apple.png";
+import facebook from "@/assets/images/logo/facebook.png";
+import lego from "@/assets/images/logo/lego.png";
+import vkontakte from "@/assets/images/logo/vkontakte.png";
 
 export default function LoginFirstScreen() {
   return (

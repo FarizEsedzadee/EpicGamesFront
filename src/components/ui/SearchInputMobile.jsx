@@ -1,10 +1,28 @@
 "use client"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, X } from "lucide-react"
 
-export default function SearchInput() {
+export default function SearchInputMobile() {
   const [open, setOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/browse?q=${encodeURIComponent(searchQuery.trim())}`);
+      setOpen(false);
+      setSearchQuery('');
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
+  };
 
   return (
     <>
@@ -28,19 +46,25 @@ export default function SearchInput() {
             className="fixed inset-0 bg-black/90 z-50 p-4"
           >
             {/* TOP SEARCH BAR */}
-            <div className="flex items-center gap-3">
+            <form onSubmit={handleSubmit} className="flex items-center gap-3">
               <Search className="text-white opacity-80" size={18} />
 
               <input
                 autoFocus
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Mağazada ara"
                 className="flex-1 bg-transparent text-white text-lg outline-none placeholder:text-gray-400"
               />
 
-              <button onClick={() => setOpen(false)}>
+              <button type="button" onClick={() => {
+                setOpen(false);
+                setSearchQuery('');
+              }}>
                 <X className="text-white" size={24} />
               </button>
-            </div>
+            </form>
 
             {/* CONTENT BELOW (scroll area) */}
             <div className="mt-6 overflow-y-auto h-[80vh]">

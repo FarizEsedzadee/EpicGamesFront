@@ -1,11 +1,8 @@
 import React from 'react'
-import BackButton from '../ui/BackButton';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
-import SocialSign from '../ui/SocialSign';
-import appleImg from '../../assets/images/apple.png';
-import googleImg from '../../assets/images/google.png';
-import { Checkbox } from '../ui/checkbox';
+import BackButton from '@/components/ui/BackButton';
+import { Label } from '@/components/ui/Label';
+import { Input } from '@/components/ui/Input';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function LoginPasswordForm() {
     return (

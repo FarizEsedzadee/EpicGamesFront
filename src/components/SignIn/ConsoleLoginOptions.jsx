@@ -1,8 +1,9 @@
 import React from 'react'
-import SocialSign from '../ui/SocialSign'
-import playstationImg from "../../assets/images/playstation.jpg";
-import xboxImg from "../../assets/images/x-box.png";
-import nintendo from "../../assets/images/nintendo.png";
+import SocialSign from '@/components/ui/SocialSign'
+import playstationImg from "@/assets/images/logo/playstation.jpg";
+import xboxImg from "@/assets/images/logo/x-box.png";
+import nintendo from "@/assets/images/logo/nintendo.png";
+
 
 export default function ConsoleLoginOptions() {
     return (

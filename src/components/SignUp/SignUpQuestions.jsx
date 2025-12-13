@@ -1,6 +1,6 @@
 import React from 'react'
-import BackButton from '../ui/BackButton'
-import firstPartyGamesImage from '../../assets/images/first-party-games.png'
+import BackButton from '@/components/ui/BackButton'
+import firstPartyGamesImage from '@/assets/images/first-party-games.png'
 
 export default function SignUpQuestions() {
     return (

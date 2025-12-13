@@ -1,10 +1,10 @@
 import React from 'react'
-import BackButton from '../ui/BackButton';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
-import SocialSign from '../ui/SocialSign';
-import appleImg from '../../assets/images/apple.png';
-import googleImg from '../../assets/images/google.png';
+import BackButton from '@/components/ui/BackButton';
+import { Label } from '@/components/ui/Label';
+import { Input } from '@/components/ui/Input';
+import SocialSign from '@/components/ui/SocialSign';
+import appleImg from '@/assets/images/logo/apple.png';
+import googleImg from '@/assets/images/logo/google.png';
 
 export default function SignUpEmailForm() {
     return (
