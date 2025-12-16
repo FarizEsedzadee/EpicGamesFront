@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import data from "@/data/data.json";
 import WeeklyDealCard from '@/components/ui/WeeklyDealCard';
 
-export default function WeeklyDeals({ 
+export default function WeeklyDeals({
   filter = null,
   games = null,
   limit = 3
@@ -10,7 +10,7 @@ export default function WeeklyDeals({
   // Filter games based on filter function or use provided games
   const filteredGames = useMemo(() => {
     let result = games || data.results;
-    
+
     if (filter && typeof filter === 'function') {
       result = result.filter(filter);
     } else if (filter && typeof filter === 'object') {
@@ -21,7 +21,7 @@ export default function WeeklyDeals({
         return true;
       });
     }
-    
+
     return result.slice(0, limit);
   }, [filter, games, limit]);
 
@@ -38,15 +38,15 @@ export default function WeeklyDeals({
   return (
     <div className="w-full">
       {/* Header */}
-      <div className="mb-6">
+      {/*     <div className="mb-6">
         <h2 className="text-white text-2xl font-bold">Haftanın Fırsatları</h2>
-      </div>
+      </div> */}
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredGames.map((game) => (
-          <WeeklyDealCard 
-            key={game.gameId} 
+          <WeeklyDealCard
+            key={game.gameId}
             game={game}
             onButtonClick={() => handleCardClick(game)}
           />

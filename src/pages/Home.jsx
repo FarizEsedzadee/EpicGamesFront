@@ -30,27 +30,15 @@ export default function Home() {
                             titleUrl="/browse?price=discounted"
                         />
 
+                        <WeeklyDeals
+                            filter={(game) => game.isFree === true}
+                            limit={3}
+                        />
+
                         <FreeGames
                             title={t('homeFreeGames')}
                             filter={(game) => game.isFree === true}
                             limit={2}
-                        />
-
-                        <WeeklyDeals
-                            filter={(game) => game.price?.discountRate > 0}
-                            limit={3}
-                        />
-
-                        <GameSlider
-                            title={t('homeEpicExtras')}
-                            filter={(game) => game.productType === "Eklenti"}
-                            titleUrl="/browse?types=add-on"
-                        />
-
-                        <GameSlider
-                            title={t('homeNewTop')}
-                            filter={(game) => game.price?.discountRate > 0}
-                            titleUrl="/browse?price=discounted"
                         />
 
                         <GameSlider
@@ -59,10 +47,64 @@ export default function Home() {
                             titleUrl="/browse?events=new-year-sale"
                         />
 
-                        {/* 8. Dikey Oyun Listeleri - 3 Sütun */}
+                        <GameSlider
+                            title={t('homeEpicExtras')}
+                            filter={(game) => game.productType === "Eklenti"}
+                            titleUrl="/browse?types=add-on"
+                        />
+
+                        <WeeklyDeals
+                            filter={(game) => game.price?.discountRate > 0}
+                            limit={3}
+                        />
+
+                        <GameSlider
+                            title={t('homeNewTop')}
+                            filter={(game) => game.price?.discountRate > 0}
+                            titleUrl="/browse?price=discounted"
+                        />
+
+                        <WeeklyDeals
+                            filter={(game) => game.isFree === true}
+                            limit={3}
+                        />
+
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <VerticalGameList
                                 title={t('homeBestSellers')}
+                                filter={(game) => game.price?.discountRate > 0}
+                                limit={5}
+                                showTrial={true}
+                                titleUrl="/browse?price=discounted"
+                            />
+                            <VerticalGameList
+                                title={t('homeMostPlayed')}
+                                filter={(game) => game.isFree === true}
+                                limit={5}
+                                titleUrl="/browse?price=free"
+                            />
+                            <VerticalGameList
+                                title={t('homeMostWishlistedUpcoming')}
+                                filter={(game) => game.price?.discountRate > 0}
+                                limit={5}
+                                titleUrl="/browse?price=discounted"
+                            />
+                        </div>
+
+                        <WeeklyDeals
+                            filter={(game) => game.price?.discountRate > 0}
+                            limit={3}
+                        />
+
+                        <GameSlider
+                            title={t('Öne Çıkanlar')}
+                            filter={(game) => game.price?.discountRate > 0 && game.isFree === false}
+                            titleUrl="/browse?price=discounted"
+                        />
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <VerticalGameList
+                                title={t('Yeni Çıkanlar')}
                                 filter={(game) => game.price?.discountRate > 0}
                                 limit={5}
                                 showTrial={true}
