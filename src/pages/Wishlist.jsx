@@ -1,12 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header/Header';
 import SecondHeader from '@/components/Header/SecondHeader';
 import Footer from '@/components/Footer/Footer';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { Gift, ChevronDown, ChevronUp } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-// Filter Section Component
 const FilterSection = ({ title, children, defaultOpen = true }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -44,6 +45,9 @@ const FilterItem = ({ label, isActive = false, onClick }) => (
 
 export default function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const { t } = useLanguage();
   const [sortBy, setSortBy] = useState('discount');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeFilters, setActiveFilters] = useState({
@@ -52,6 +56,10 @@ export default function Wishlist() {
     features: [],
     platforms: []
   });
+
+  useEffect(() => {
+    if (!isAuthenticated) navigate('/login');
+  }, [isAuthenticated, navigate]);
 
   const formatPrice = (value, currency = '₺') => {
     if (value === null || value === undefined) return '';
@@ -86,7 +94,6 @@ export default function Wishlist() {
     });
   };
 
-  // Sort wishlist
   const sortedWishlist = useMemo(() => {
     const list = [...wishlist];
     switch (sortBy) {
@@ -112,7 +119,7 @@ export default function Wishlist() {
           <div className="px-5 py-10">
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-2">İstek Listesi</h1>
+              <h1 className="text-4xl font-bold mb-2">{t('wishlistTitle')}</h1>
               {wishlist.length > 0 && (
                 <p className="text-[#88888a] text-sm">
                   İstek listesindeki oyunları indirme giriş zaman ya da satın alım veya ön satın alım için hazır olduğu zaman bildirim al.

@@ -1,0 +1,203 @@
+[
+  {
+    "id": "phantom-blade-zero-kung-fu",
+    "slug": "phantom-blade-zero-kung-fu",
+    "title": "Phantom Blade Zero'nun kung fu dövüşleri erişilebilirliği gerçekçilikle dengeliyor",
+    "publishedAt": "2025-12-12",
+    "author": "S-GAME ile Röportaj",
+    "readTime": "7 dk",
+    "category": "Röportaj",
+    "summary": "S-GAME ekibi, Phantom Blade Zero'nun 15 animasyonluk hareket setiyle hem yeni oyuncuları hem de hardcore hayranları nasıl yakalamayı başardığını anlatıyor.",
+    "heroImage": "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1600&q=80",
+    "thumbnail": "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Dövüş sisteminin kalbi",
+        "body": "Geliştirici ekip, klasik wuxia filmlerinden esinlenen animasyonları modern aksiyon oyunlarının akıcılığıyla birleştirmiş. 15 farklı temel animasyonun her biri, kombolar arasında anlaşılır geçişler sunarken, refleks tabanlı oynanışın yanına okunabilirliği artıran parlamalar ve görsel ipuçları eklenmiş."
+      },
+      {
+        "heading": "Erişilebilir ama derin",
+        "body": "Stüdyo, yeni oyuncuların oyuna hızlıca adapte olabilmesi için iki düğmeyle başlayan bir kombo yapısı kurmuş. Bunun üzerine zamanla açılan ileri seviye parry pencereleri ve stance değişimleri ekleniyor. Bu sayede ustalaşmak isteyenler için ciddi derinlik korunurken, kapı ardına kadar açık bırakılıyor."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80",
+        "caption": "Dövüş koreografisi, film görselliği ve okunabilirliği aynı potada eritiyor."
+      },
+      {
+        "heading": "UE5 ile sahne ışıkları",
+        "body": "Nanite destekli çevre detayları ve Lumen aydınlatma, sisli tapınaklardan neonlu şehirlere kadar geniş bir yelpazede atmosferi taşıyor. Performans modunda dahi parçacık efektleri ve çarpışma ayrıntıları korunarak dövüşler vurucu hissettiriliyor."
+      }
+    ],
+    "tags": ["Aksiyon", "Wuxia", "Unreal Engine 5"]
+  },
+  {
+    "id": "holiday-sale-2025-guide",
+    "slug": "holiday-sale-2025-guide",
+    "title": "Epic Games 2025 Tatil İndirimi rehberi: En iyi fırsatlar ve hediyeler",
+    "publishedAt": "2025-12-11",
+    "author": "Epic Games Haber",
+    "readTime": "5 dk",
+    "category": "Rehber",
+    "summary": "Yılbaşı indirimlerinde yüzde 75'e varan fırsatlar, Epic Rewards ile yüzde 20 geri ödeme ve hediye edilebilir oyunlarla öne çıkan seçimler.",
+    "heroImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    "thumbnail": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Vitrindeki büyük indirimler",
+        "body": "Yılın en çok satan yapımlarında yüzde 75'e varan indirimler bulunuyor. Epic Rewards ile birlikte geri ödeme oranı bu dönemde yüzde 20'ye çıkarak sepet toplamını ciddi ölçüde aşağı çekiyor."
+      },
+      {
+        "heading": "Arkadaşlara hediye etme",
+        "body": "Mağaza içinden doğrudan hediye kartı ya da oyun gönderme akışı basitleştirildi. Alıcılar otomatik bildirim alıyor ve eğer kütüphanede aynı oyun varsa kupon olarak dönüştürülebiliyor."
+      },
+      {
+        "heading": "Günlük ücretsizler ve kuponlar",
+        "body": "Her gün değişen ücretsiz oyunlar dışında, sepet toplamına otomatik uygulanan ekstra kuponlar da dönem boyunca aktif olacak. Hediye edilmek istenen oyunlarda da kuponlar geçerli."
+      }
+    ],
+    "tags": ["İndirim", "Epic Rewards", "Kupon"]
+  },
+  {
+    "id": "terminator-2d-arcade-throwback",
+    "slug": "terminator-2d-arcade-throwback",
+    "title": "Terminator 2D: No Fate, 16-bit dönemin arcade ruhunu yeniden canlandırıyor",
+    "publishedAt": "2025-12-10",
+    "author": "Bitmap Bureau",
+    "readTime": "4 dk",
+    "category": "Duyuru",
+    "summary": "Beat 'em up, run 'n' gun ve gizlilik öğelerini harmanlayan hibrit oynanış; retro görselliği modern kalite-of-life dokunuşlarıyla güncelliyor.",
+    "heroImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80&sat=-100",
+    "thumbnail": "https://images.unsplash.com/photo-1500336624523-d727130c3328?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Retrodan beslenen yeni mekanikler",
+        "body": "Bitmap Bureau, oyuna hızlı kaçınmalar, taktiksel engeller ve gizlilik bölümleri ekleyerek klasik arcade aksiyonuna modern bir tempo kazandırıyor."
+      },
+      {
+        "heading": "Kusursuz piksel estetiği",
+        "body": "Sprite tabanlı animasyonlar, CRT filtreleri ve isteğe bağlı quality-of-life ayarları (otomatik kayıt, hız modları) oyunculara nostaljik ama esnek bir deneyim sunuyor."
+      }
+    ],
+    "tags": ["Retro", "Aksiyon", "Piksel Sanat"]
+  },
+  {
+    "id": "lego-fortnite-ninjago-update",
+    "slug": "lego-fortnite-ninjago-update",
+    "title": "LEGO Fortnite Odyssey'de NINJAGO adası ve Spinjitzu ustalığı",
+    "publishedAt": "2025-12-10",
+    "author": "Epic Games Haber",
+    "readTime": "4 dk",
+    "category": "Güncelleme",
+    "summary": "Spinjitzu parşömenleri, yeni kaynaklar ve NINJAGO adasını keşfederken ninjalığı ilerleten görevler oyunculara açılıyor.",
+    "heroImage": "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1600&q=80&sat=-20",
+    "thumbnail": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Ada keşfi ve kaynaklar",
+        "body": "Oyuncular, NINJAGO adasında Spinjitzu parşömenleri toplayarak ustalık seviyelerini yükseltiyor ve yeni kozmetiklerin kilidini açıyor."
+      },
+      {
+        "heading": "Topluluk geri bildirimi",
+        "body": "Epic, ilk beta oyuncularından gelen geri bildirimle keşif hızını artırmak için hareket seçeneklerini ve görev yoğunluğunu dengelemiş."
+      }
+    ],
+    "tags": ["LEGO Fortnite", "NINJAGO", "Güncelleme"]
+  },
+  {
+    "id": "007-first-light-preview",
+    "slug": "007-first-light-preview",
+    "title": "007 First Light, Bond'un kökenlerini yıldız oyuncu kadrosuyla anlatıyor",
+    "publishedAt": "2025-12-10",
+    "author": "IO Interactive",
+    "readTime": "5 dk",
+    "category": "Ön İnceleme",
+    "summary": "Hitman ekibi, özgün bir Bond hikayesi yazarken çevik gizlilik mekaniklerini geniş alan tasarımlarıyla harmanlıyor.",
+    "heroImage": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1600&q=80",
+    "thumbnail": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Özgün Bond anlatısı",
+        "body": "IO Interactive, filmlerden bağımsız ama dönemi yakalayan bir hikaye anlatıyor; karaktere gizlilik ve sosyal mühendislik odaklı görevler eşlik ediyor."
+      },
+      {
+        "heading": "Hitman DNA'sı",
+        "body": "Geliştirici, açık uçlu görev yapısını korurken daha hızlı tempolu çatışma seçenekleri ve araç takibi bölümleri ekliyor."
+      }
+    ],
+    "tags": ["Bond", "Gizlilik", "IOI"]
+  },
+  {
+    "id": "clair-obscur-game-awards",
+    "slug": "clair-obscur-game-awards",
+    "title": "Clair Obscur, 9 ödül birden toplayarak yılın sürprizine imza attı",
+    "publishedAt": "2025-12-10",
+    "author": "Alan Wen",
+    "readTime": "3 dk",
+    "category": "Ödül",
+    "summary": "Ritim tabanlı sıra sistemi ve sürreal görselliğiyle dikkat çeken Clair Obscur, Game Awards 2025'te en iyi oyun dahil 9 ödül kazandı.",
+    "heroImage": "https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=1600&q=80",
+    "thumbnail": "https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Neden öne çıktı?",
+        "body": "Ritmik komut pencereleri ve sıra tabanlı aksiyonun birleşimi, türün sınırlarını zorlayan bir tempo yaratıyor. Sanatsal yönetim ise modern sürrealizm örneği olarak gösteriliyor."
+      },
+      {
+        "heading": "Sonraki adımlar",
+        "body": "Geliştirici stüdyo, ilk büyük içerik güncellemesinin 2026 başında geleceğini ve yeni bir boss serisini içereceğini doğruladı."
+      }
+    ],
+    "tags": ["JRPG", "Ritim", "Ödül"]
+  },
+  {
+    "id": "metro-rivals-new-york",
+    "slug": "metro-rivals-new-york",
+    "title": "Metro Rivals: New York, metro trenlerinde hız tutkusunu şehre taşıyor",
+    "publishedAt": "2025-12-09",
+    "author": "Alan Wen",
+    "readTime": "6 dk",
+    "category": "Ön İnceleme",
+    "summary": "Dovetail Games, Unreal Engine 5'in gücüyle New York metrosunu yarış pistine çeviriyor; karakter odaklı 'Track Titan' patronlarıyla hikayeyi hızla bağlıyor.",
+    "heroImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
+    "thumbnail": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Raylarda hız",
+        "body": "Arcade esintili hız şeritleri, reflekse dayalı quick-time kontrol noktaları ve drift benzeri viraj alma mekaniği, tren sürüşünü yarış temposuna taşıyor."
+      },
+      {
+        "heading": "Çatışmalı bölgeler",
+        "body": "New York'un 110 ilçesi, Track Titan adı verilen ünlü 'sürücüler' tarafından yönetiliyor. Oyuncular her ilçede kendi imzalı trenlerine karşı yarışarak itibar topluyor."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+        "caption": "Güzergahlar, Manhattan manzaralarından yer altı tünellerine uzanıyor."
+      }
+    ],
+    "tags": ["Simülasyon", "Yarış", "Unreal Engine 5"]
+  },
+  {
+    "id": "bafta-longlist-2025",
+    "slug": "bafta-longlist-2025",
+    "title": "BAFTA, 2025'in en iyi 64 oyununu uzun listede duyurdu",
+    "publishedAt": "2025-12-09",
+    "author": "BAFTA Games",
+    "readTime": "3 dk",
+    "category": "Ödül",
+    "summary": "64 oyun, 12 Mart 2026'da açıklanacak final adaylıkları için ikinci tur oylamaya geçiyor. Yılın bağımsız yapımları da listede güçlü temsil ediliyor.",
+    "heroImage": "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1600&q=80&sat=-100",
+    "thumbnail": "https://images.unsplash.com/photo-1441123100240-f9f3f77ed41b?auto=format&fit=crop&w=900&q=70",
+    "content": [
+      {
+        "heading": "Öne çıkan kategoriler",
+        "body": "Sanat yönetimi, teknik başarı, oyun tasarımı ve müzik kategorilerinde bu yıl bağımsız stüdyoların ağırlığı dikkat çekiyor."
+      },
+      {
+        "heading": "Tarih ve süreç",
+        "body": "12 Mart 2026'da açıklanacak adaylar, Nisan ayında Londra'da yapılacak törende ödüller için yarışacak. Kamu oylaması ise Şubat'ta başlayacak."
+      }
+    ],
+    "tags": ["BAFTA", "Ödüller", "Endüstri"]
+  }
+]
+

@@ -20,6 +20,17 @@ import TwinmotionLogo from "@/assets/images/logo/TwinmotionLogo.svg";
 import RealityScanLogo from "@/assets/images/logo/RealityScanLogo.svg";
 import EpicGamesLogo from "@/assets/images/logo/EpicGamesLogo.svg";
 import ServicesLogo from "@/assets/images/logo/ServicesLogo.svg";
+import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { useNavigate } from 'react-router-dom';
 const variants = {
     hidden: { opacity: 0, x: -10 },
     visible: { opacity: 1, x: 0 },
@@ -29,7 +40,12 @@ const variants = {
 
 
 export default function Header() {
+    const { currentUser, isAuthenticated, logout } = useAuth();
+    const { language, setLanguage, languages, t } = useLanguage();
+    const navigate = useNavigate();
     const [showDistribution, setShowDistribution] = useState(false);
+    const displayName = currentUser?.displayName || currentUser?.email || 'Profil';
+    const avatarChar = displayName?.charAt(0)?.toUpperCase() || 'P';
     return (
         <>
             <header id='header' className="flex w-full items-center justify-between py-5 bg-[#121216] px-5 relative z-[60]">
@@ -172,12 +188,86 @@ export default function Header() {
                 </div>
 
                 <div className="right flex items-center gap-3">
-                    <CiGlobe className='text-[24px] hidden md:flex' />
-                    <a href='/login' className="bg-[#353539] text-[14px] text-white p-[6px_8px] rounded-[8px] hidden md:flex">
-                        Giriş Yap
-                    </a>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className="hidden md:flex items-center gap-1 focus:outline-none px-2 py-1 rounded-md hover:bg-[#1f1f25]">
+                            <CiGlobe className='text-[22px]' />
+                            <span className="text-white text-sm font-medium">{language.toUpperCase()}</span>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                            align="end"
+                            sideOffset={6}
+                            className="z-[90] w-44 bg-[#111015] text-white border border-[#2a2a30] rounded-xl shadow-2xl px-0 py-2"
+                        >
+                            {languages.map((lng) => (
+                                <DropdownMenuItem
+                                    key={lng.code}
+                                    onSelect={() => setLanguage(lng.code)}
+                                    className="px-4 py-2 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    <span className="flex items-center justify-between w-full">
+                                        {lng.label}
+                                        {lng.code === language && <span className="text-[#26bbff] text-xs">✓</span>}
+                                    </span>
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                    {isAuthenticated ? (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger className="hidden md:flex items-center gap-2 focus:outline-none relative z-[80]">
+                                <div className="w-9 h-9 rounded-full bg-[#353539] text-white flex items-center justify-center font-semibold shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
+                                    {avatarChar}
+                                </div>
+                                <span className="text-white text-sm font-semibold">{displayName}</span>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                align="end"
+                                sideOffset={10}
+                                className="z-[90] w-60 bg-[#111015] text-white border border-[#2a2a30] rounded-xl shadow-2xl px-0 py-2"
+                            >
+                                <DropdownMenuItem
+                                    asChild
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    <Link to="/profile">Profil</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    asChild
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    <Link to="/wishlist">İstek Listesi</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    asChild
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    <Link to="/gifts">Hediyeler</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    asChild
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    <Link to="/cart">Sepet</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator className="bg-[#2a2a30]" />
+                                <DropdownMenuItem
+                                    onSelect={() => {
+                                        logout();
+                                        navigate('/');
+                                    }}
+                                    className="px-4 py-3 text-[14px] text-red-400 hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                >
+                                    Çıkış Yap
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    ) : (
+                        <a href='/login' className="bg-[#353539] text-[14px] text-white p-[6px_8px] rounded-[8px] hidden md:flex">
+                            {t('login')}
+                        </a>
+                    )}
                     <a href='https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi' className="bg-[#26bbff] text-[14px] text-black p-[6px_8px] rounded-[8px]">
-                        Yükle
+                        {t('download')}
                     </a>
 
                     <Sheet>

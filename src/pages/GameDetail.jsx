@@ -6,6 +6,7 @@ import Footer from '@/components/Footer/Footer';
 import data from '@/data/data.json';
 import { Star, Share2, Flag, Heart } from 'lucide-react';
 import { useWishlist } from '@/contexts/WishlistContext';
+import { useCart } from '@/contexts/CartContext';
 
 export default function GameDetail() {
   const { gameId } = useParams();
@@ -13,6 +14,9 @@ export default function GameDetail() {
   const wishlistContext = useWishlist();
   const isInWishlist = wishlistContext?.isInWishlist || (() => false);
   const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
+  const cartContext = useCart();
+  const isInCart = cartContext?.isInCart || (() => false);
+  const addToCart = cartContext?.addToCart || (() => {});
 
   const game = useMemo(() => {
     if (!gameId) return null;
@@ -23,6 +27,7 @@ export default function GameDetail() {
   }, [gameId]);
 
   const inWishlist = game ? isInWishlist(game.gameId) : false;
+  const inCart = game ? isInCart(game.gameId) : false;
 
   if (!game) {
     return (
@@ -366,8 +371,17 @@ export default function GameDetail() {
                   </div>
 
                   {/* Action Button */}
-                  <button className="w-full bg-[#0074e4] hover:bg-[#0084f4] text-white font-bold py-3 px-4 rounded mb-4 transition-colors">
-                    {game.isFree ? 'Kütüphanede' : 'Sepete Ekle'}
+                  <button
+                    onClick={() => {
+                      if (inCart) {
+                        window.location.href = '/cart';
+                      } else {
+                        addToCart(game, 1);
+                      }
+                    }}
+                    className="w-full bg-[#0074e4] hover:bg-[#0084f4] text-white font-bold py-3 px-4 rounded mb-4 transition-colors"
+                  >
+                    {game.isFree ? 'Kütüphanede' : inCart ? 'Sepette - Görüntüle' : 'Sepete Ekle'}
                   </button>
 
                   {/* Wishlist Button */}

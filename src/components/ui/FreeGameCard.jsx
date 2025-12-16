@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PlusCircle, Check } from 'lucide-react';
+import { Bookmark, BookmarkCheck } from 'lucide-react';
 import { useWishlist } from '@/contexts/WishlistContext';
 
 export default function FreeGameCard({ game, onButtonClick }) {
@@ -25,7 +25,7 @@ export default function FreeGameCard({ game, onButtonClick }) {
             alt={game.title}
             className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute top-2 right-2 transition-opacity">
+          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
             <button 
               onClick={handleWishlistClick}
               className={`p-1.5 rounded-full transition-colors ${
@@ -35,7 +35,7 @@ export default function FreeGameCard({ game, onButtonClick }) {
               }`}
               title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
             >
-              {inWishlist ? <Check size={18} /> : <PlusCircle size={18} />}
+              {inWishlist ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
             </button>
           </div>
         </div>

@@ -8,8 +8,10 @@ import FreeGames from '@/components/Main/FreeGames';
 import VerticalGameList from '@/components/Main/VerticalGameList';
 import GameSlider from '@/components/Main/GameSlider';
 import data from "@/data/data.json";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Home() {
+    const { t } = useLanguage();
 
     return (
         <>
@@ -22,43 +24,37 @@ export default function Home() {
                         {/* 1. Hero Section */}
                         <HeroSection />
 
-                        {/* 2. Yeni Şeyler Keşfet */}
                         <GameSlider
-                            title="Yeni Şeyler Keşfet"
+                            title={t('homeDiscoverNew')}
                             filter={(game) => game.price?.discountRate > 0}
                             titleUrl="/browse?price=discounted"
                         />
 
-                        {/* 3. Ücretsiz Oyunlar */}
                         <FreeGames
-                            title="Ücretsiz Oyunlar"
+                            title={t('homeFreeGames')}
                             filter={(game) => game.isFree === true}
                             limit={2}
                         />
 
-                        {/* 4. Haftanın Fırsatları */}
                         <WeeklyDeals
                             filter={(game) => game.price?.discountRate > 0}
                             limit={3}
                         />
 
-                        {/* 5. Epic Ekstraları */}
                         <GameSlider
-                            title="Epic Ekstraları"
+                            title={t('homeEpicExtras')}
                             filter={(game) => game.productType === "Eklenti"}
                             titleUrl="/browse?types=add-on"
                         />
 
-                        {/* 6. Yeni Çıkan En İyi Oyunlar */}
                         <GameSlider
-                            title="Yeni Çıkan En İyi Oyunlar"
+                            title={t('homeNewTop')}
                             filter={(game) => game.price?.discountRate > 0}
                             titleUrl="/browse?price=discounted"
                         />
 
-                        {/* 7. Yılbaşı Tatili İndiriminde Öne Çıkanlar */}
                         <GameSlider
-                            title="Yılbaşı Tatili İndiriminde Öne Çıkanlar"
+                            title={t('homeHolidayHighlights')}
                             filter={(game) => game.price?.discountRate > 0}
                             titleUrl="/browse?events=new-year-sale"
                         />
@@ -66,20 +62,20 @@ export default function Home() {
                         {/* 8. Dikey Oyun Listeleri - 3 Sütun */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             <VerticalGameList
-                                title="En Çok Satanlar"
+                                title={t('homeBestSellers')}
                                 filter={(game) => game.price?.discountRate > 0}
                                 limit={5}
                                 showTrial={true}
                                 titleUrl="/browse?price=discounted"
                             />
                             <VerticalGameList
-                                title="En Çok Oynananlar"
+                                title={t('homeMostPlayed')}
                                 filter={(game) => game.isFree === true}
                                 limit={5}
                                 titleUrl="/browse?price=free"
                             />
                             <VerticalGameList
-                                title="En Çok İstek Listesine Eklenen Yakında Çıkacak Oyunlar"
+                                title={t('homeMostWishlistedUpcoming')}
                                 filter={(game) => game.price?.discountRate > 0}
                                 limit={5}
                                 titleUrl="/browse?price=discounted"

@@ -5,6 +5,8 @@ import SearchInputMobile from '@/components/ui/SearchInputMobile';
 import SearchInput from '@/components/ui/SearchInput';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useWishlist } from '@/contexts/WishlistContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 
 export default function SecondHeader() {
@@ -12,6 +14,8 @@ export default function SecondHeader() {
     const [isFixed, setIsFixed] = useState(false);
     const wishlistContext = useWishlist();
     const wishlist = wishlistContext?.wishlist || [];
+    const { isAuthenticated } = useAuth();
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,9 +55,9 @@ export default function SecondHeader() {
                         </div>
 
                         <ul className='hidden lg:flex flex gap-3'>
-                            <li className='p-3 hover:text-[1e1e21] transition'><Link to="/">Keşfet</Link></li>
-                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/browse">Göz At</Link></li>
-                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><a href="#">Haberler</a></li>
+                            <li className='p-3 hover:text-[1e1e21] transition'><Link to="/">{t('discover')}</Link></li>
+                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/browse">{t('browse')}</Link></li>
+                            <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/news">{t('news')}</Link></li>
                         </ul>
                     </div>
                         <div className="right">
@@ -61,15 +65,15 @@ export default function SecondHeader() {
                                 <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'>
                                     <Link to="/wishlist" className="flex items-center gap-2">
                                         İstek Listesi
-                                        {wishlist.length > 0 && (
+                                        {isAuthenticated && wishlist.length > 0 && (
                                             <span className="bg-[#0074e4] text-white text-xs px-2 py-0.5 rounded-full font-semibold">
                                                 {wishlist.length}
                                             </span>
                                         )}
                                     </Link>
                                 </li>
-                                <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><a href="#">Hediyeler</a></li>
-                                <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><a href="#">Sepet</a></li>
+                                <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/gifts">{t('gifts')}</Link></li>
+                                <li className='p-3 hover:text-[1e1e21] text-[#9f9fa1] transition'><Link to="/cart">{t('cart')}</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -79,9 +83,12 @@ export default function SecondHeader() {
             {
                 showMenu && <div className='bg-[#101014] w-[90%] text-[14px] mx-auto p-5 shadow-xl mt-2'>
                     <ul className='flex flex-col gap-3'>
-                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/">Keşfet</Link></li>
-                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/browse">Göz At</Link></li>
-                        <li className='p-3 hover:text-[1e1e21] transition'><a href="#">Haberler</a></li>
+                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/">{t('discover')}</Link></li>
+                        <li className='border-b border-[#3f3f43] p-3 hover:text-[1e1e21] transition'><Link to="/browse">{t('browse')}</Link></li>
+                        <li className='p-3 hover:text-[1e1e21] transition'><Link to="/news">{t('news')}</Link></li>
+                        <li className='p-3 hover:text-[1e1e21] transition'><Link to="/cart">{t('cart')}</Link></li>
+                        <li className='p-3 hover:text-[1e1e21] transition'><Link to="/gifts">{t('gifts')}</Link></li>
+                        <li className='p-3 hover:text-[1e1e21] transition'><Link to="/profile">{t('profile')}</Link></li>
                     </ul>
                 </div>
             }

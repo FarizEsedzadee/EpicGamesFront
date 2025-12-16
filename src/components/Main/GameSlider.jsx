@@ -2,8 +2,9 @@ import React, { useRef, useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Bookmark, BookmarkCheck } from 'lucide-react';
 import data from "@/data/data.json";
+import { useWishlist } from '@/contexts/WishlistContext';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -16,6 +17,9 @@ export default function GameSlider({
   titleUrl = null
 }) {
   const navigate = useNavigate();
+  const wishlistContext = useWishlist();
+  const isInWishlist = wishlistContext?.isInWishlist || (() => false);
+  const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
   
   const handleTitleClick = (e) => {
     e.preventDefault();
@@ -172,6 +176,23 @@ export default function GameSlider({
                   alt={game.title} 
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
                 />
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleWishlist(game);
+                    }}
+                    className={`p-1.5 rounded-full transition-colors ${
+                      isInWishlist(game.gameId)
+                        ? 'bg-white text-black hover:bg-gray-200'
+                        : 'bg-black/70 text-white hover:bg-black'
+                    }`}
+                    title={isInWishlist(game.gameId) ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
+                  >
+                    {isInWishlist(game.gameId) ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
+                  </button>
+                </div>
               </div>
               
               {/* Game Info */}

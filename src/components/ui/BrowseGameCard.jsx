@@ -1,18 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { PlusCircle, Check } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Bookmark, BookmarkCheck, ShoppingCart } from "lucide-react";
 import { useWishlist } from '@/contexts/WishlistContext';
+import { useCart } from '@/contexts/CartContext';
 
 export default function BrowseGameCard({ game }) {
   const wishlistContext = useWishlist();
   const isInWishlist = wishlistContext?.isInWishlist || (() => false);
   const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
   const inWishlist = isInWishlist(game.gameId);
+  const cartContext = useCart();
+  const isInCart = cartContext?.isInCart || (() => false);
+  const addToCart = cartContext?.addToCart || (() => {});
+  const navigate = useNavigate();
 
   const handleWishlistClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
     toggleWishlist(game);
+  };
+
+  const handleCartClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isInCart(game.gameId)) {
+      navigate('/cart');
+    } else {
+      addToCart(game, 1);
+    }
   };
 
   const formatPrice = (value, currency = '₺') => {
@@ -38,7 +53,7 @@ export default function BrowseGameCard({ game }) {
           alt={game.title} 
           className="h-full object-cover transition-opacity duration-300 group-hover:opacity-90" 
         />
-        <div className="absolute top-2 right-2 transition-opacity">
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button 
             onClick={handleWishlistClick}
             className={`p-1.5 rounded-full transition-colors ${
@@ -48,7 +63,7 @@ export default function BrowseGameCard({ game }) {
             }`}
             title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
           >
-            {inWishlist ? <Check size={18} /> : <PlusCircle size={18} />}
+            {inWishlist ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
           </button>
         </div>
       </div>
@@ -91,6 +106,13 @@ export default function BrowseGameCard({ game }) {
             </span>
           )}
         </div>
+        <button
+          onClick={handleCartClick}
+          className="mt-3 inline-flex items-center gap-2 text-[13px] text-[#9bd2ff] hover:text-white transition-colors"
+        >
+          <ShoppingCart size={16} />
+          {isInCart(game.gameId) ? 'Sepette' : 'Sepete ekle'}
+        </button>
       </div>
     </Link>
   );

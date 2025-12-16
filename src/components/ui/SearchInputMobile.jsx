@@ -3,11 +3,13 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, X } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function SearchInputMobile() {
   const [open, setOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const navigate = useNavigate()
+  const { t } = useLanguage()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +28,6 @@ export default function SearchInputMobile() {
 
   return (
     <>
-      {/* SMALL COMPACT SEARCH */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
@@ -36,7 +37,6 @@ export default function SearchInputMobile() {
         </button>
       )}
 
-      {/* FULLSCREEN SEARCH */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -45,7 +45,6 @@ export default function SearchInputMobile() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/90 z-50 p-4"
           >
-            {/* TOP SEARCH BAR */}
             <form onSubmit={handleSubmit} className="flex items-center gap-3">
               <Search className="text-white opacity-80" size={18} />
 
@@ -54,7 +53,7 @@ export default function SearchInputMobile() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Mağazada ara"
+                placeholder={t('searchStore')}
                 className="flex-1 bg-transparent text-white text-lg outline-none placeholder:text-gray-400"
               />
 
@@ -66,7 +65,6 @@ export default function SearchInputMobile() {
               </button>
             </form>
 
-            {/* CONTENT BELOW (scroll area) */}
             <div className="mt-6 overflow-y-auto h-[80vh]">
               <p className="text-gray-400">Arama sonuçları buraya gelecek...</p>
             </div>
