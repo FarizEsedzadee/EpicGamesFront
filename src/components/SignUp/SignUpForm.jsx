@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import BackButton from '../ui/BackButton';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
+import BackButton from '@components/ui/BackButton';
+import { Label } from '@components/ui/Label';
+import { Input } from '@components/ui/Input';
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import axios from 'axios';
-import { Checkbox } from '../ui/checkbox';
+import { Checkbox } from '@components/ui/checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
