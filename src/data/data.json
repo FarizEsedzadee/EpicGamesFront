@@ -310,7 +310,7 @@
             "media": {
                 "titleImage": "",
                 "coverImage": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
-                "bannerImage": "",
+                "bannerImage": "https://cdn1.epicgames.com/b30b6d1b4dfd4dcc93b5490be5e094e5/offer/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.jpg",
                 "screenshots": [],
                 "videos": []
             },
@@ -393,7 +393,7 @@
             "media": {
                 "titleImage": "",
                 "coverImage": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
-                "bannerImage": "",
+                "bannerImage": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2019/KiOFIkCUPCHAcs72n0yvrxtO.jpg",
                 "screenshots": [],
                 "videos": []
             },
@@ -475,8 +475,8 @@
             "isFree": false,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://media.rawg.io/media/games/b7e/b7ee8584neutrino.jpg",
-                "bannerImage": "",
+                "coverImage": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+                "bannerImage": "https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077UltimateEdition_CDPROJEKTRED_Editions_S1_2560x1440-b8bfbed19257188c717a26ee5bf79b41",
                 "screenshots": [],
                 "videos": []
             },
@@ -558,8 +558,8 @@
             "isFree": false,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://media.rawg.io/media/games/d58/d588147307defbb5fa64fa3203211303.jpg",
-                "bannerImage": "",
+                "coverImage": "https://cdn1.epicgames.com/offer/c4763f236d08423eb47b4c3008779c84/EGS_AlanWake2_RemedyEntertainment_S2_1200x1600-c7c8091ddac0f9669c8e5905bca88aaa",
+                "bannerImage": "https://cdn2.unrealengine.com/egs-alanwake2deluxeedition-remedyentertainment-editions-s1-2560x1440-ddf9b1f255e9.jpg?resize=1&w=480&h=270&quality=medium",
                 "screenshots": [],
                 "videos": []
             },
@@ -697,10 +697,25 @@
             "description": "Fortnite için özel Hollypaw Wrap paketi.",
             "publisher": "Epic Games",
             "developer": "Epic Games",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Cosmetic"],
-            "tags": ["Free", "Fortnite", "Wrap"],
-            "platforms": ["Windows", "PlayStation", "Xbox", "Nintendo Switch"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Cosmetic"
+            ],
+            "tags": [
+                "Free",
+                "Fortnite",
+                "Wrap"
+            ],
+            "platforms": [
+                "Windows",
+                "PlayStation",
+                "Xbox",
+                "Nintendo Switch"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -711,8 +726,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://cdn2.unrealengine.com/fneco-2025-keyart-thumb-1920x1080-de84aedabf4d.jpg",
-                "bannerImage": "https://cdn2.unrealengine.com/fneco-2025-keyart-thumb-1920x1080-de84aedabf4d.jpg",
+                "coverImage": "https://cdn1.epicgames.com/offer/fn/EN_FNECO39-00_RMT_HollypawWrap_EGS_Portrait_1200x1600_1200x1600-10939f5c6a6964d8e288cf199d4fda04?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/offer/fn/EN_FNECO39-00_RMT_HollypawWrap_EGS_Landscape_2560x1440_2560x1440-db0635caf47f69e91613a13d56ac53db",
                 "screenshots": [],
                 "videos": []
             },
@@ -722,8 +737,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 5000000,
@@ -746,10 +766,25 @@
             "description": "Fall Guys için Fashionably Frosty kostüm paketi.",
             "publisher": "Epic Games",
             "developer": "Mediatonic",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Cosmetic"],
-            "tags": ["Free", "Fall Guys", "Costume"],
-            "platforms": ["Windows", "PlayStation", "Xbox", "Nintendo Switch"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Cosmetic"
+            ],
+            "tags": [
+                "Free",
+                "Fall Guys",
+                "Costume"
+            ],
+            "platforms": [
+                "Windows",
+                "PlayStation",
+                "Xbox",
+                "Nintendo Switch"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -760,8 +795,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
-                "bannerImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
+                "coverImage": "https://cdn1.epicgames.com/offer/50118b7f954e450f8823df1614b24e80/FallGuys_1200x16001_1200x1600-db62c1e38d1b48fa9ed47b3ca14b1d87?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/offer/50118b7f954e450f8823df1614b24e80/FallGuys_2560x14401_2560x1440-b7971e34b75949ddacedba98935a7428",
                 "screenshots": [],
                 "videos": []
             },
@@ -771,8 +806,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 3000000,
@@ -795,10 +835,25 @@
             "description": "Rocket League için TriTrim Crimson & Forest Green tekerlek paketi.",
             "publisher": "Epic Games",
             "developer": "Psyonix",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Cosmetic"],
-            "tags": ["Free", "Rocket League", "Wheels"],
-            "platforms": ["Windows", "PlayStation", "Xbox", "Nintendo Switch"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Cosmetic"
+            ],
+            "tags": [
+                "Free",
+                "Rocket League",
+                "Wheels"
+            ],
+            "platforms": [
+                "Windows",
+                "PlayStation",
+                "Xbox",
+                "Nintendo Switch"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -809,8 +864,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
-                "bannerImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
+                "coverImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_TriTrimCrimsonForestGreenWheels_PsyonixLLC_DLC_S2_1200x1600-efd35cdab8f68d0b9ad0dcaa7318ddf5?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_TriTrimCrimsonForestGreenWheels_PsyonixLLC_DLC_G1A_00_1920x1080-1cbe3ebe21fdd6b227254dd40c12e716",
                 "screenshots": [],
                 "videos": []
             },
@@ -820,8 +875,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 4000000,
@@ -844,10 +904,22 @@
             "description": "Infinity Nikki için özel Epic Extras Bundle paketi.",
             "publisher": "Infinity Nikki",
             "developer": "Infinity Nikki",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Bundle"],
-            "tags": ["Free", "Infinity Nikki", "Bundle"],
-            "platforms": ["Windows"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Bundle"
+            ],
+            "tags": [
+                "Free",
+                "Infinity Nikki",
+                "Bundle"
+            ],
+            "platforms": [
+                "Windows"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -858,8 +930,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://media.rawg.io/media/games/d58/d588147307defbb5fa64fa3203211303.jpg",
-                "bannerImage": "https://media.rawg.io/media/games/d58/d588147307defbb5fa64fa3203211303.jpg",
+                "coverImage": "https://cdn1.epicgames.com/spt-assets/8d6db22e08f34ac29247bfbef5ba97a9/infinity-nikki-16cyh.png?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/spt-assets/8d6db22e08f34ac29247bfbef5ba97a9/infinity-nikki-1it0k.png",
                 "screenshots": [],
                 "videos": []
             },
@@ -869,8 +941,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 2000000,
@@ -893,10 +970,22 @@
             "description": "Idle Champions of the Forgotten Realms için Cozy Dark Urge Party Pack.",
             "publisher": "Codename Entertainment",
             "developer": "Codename Entertainment",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Bundle"],
-            "tags": ["Free", "Idle Champions", "Party Pack"],
-            "platforms": ["Windows"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Bundle"
+            ],
+            "tags": [
+                "Free",
+                "Idle Champions",
+                "Party Pack"
+            ],
+            "platforms": [
+                "Windows"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -907,8 +996,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://media.rawg.io/media/games/b7e/b7ee8584neutrino.jpg",
-                "bannerImage": "https://media.rawg.io/media/games/b7e/b7ee8584neutrino.jpg",
+                "coverImage": "https://cdn1.epicgames.com/spt-assets/a53f91e55c6840018cb5de0b204f1ad9/idle-champions-of-the-forgotten-realms-1jtvh.png?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/spt-assets/a53f91e55c68…/idle-champions-of-the-forgotten-realms-1nkul.jpg",
                 "screenshots": [],
                 "videos": []
             },
@@ -918,8 +1007,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 1500000,
@@ -942,10 +1036,22 @@
             "description": "Firestone için özel Christmas Giveaway paketi.",
             "publisher": "Firestone",
             "developer": "Firestone",
-            "genre": ["Cosmetic", "Add-on"],
-            "categories": ["Add-on", "Bundle"],
-            "tags": ["Free", "Firestone", "Christmas"],
-            "platforms": ["Windows"],
+            "genre": [
+                "Cosmetic",
+                "Add-on"
+            ],
+            "categories": [
+                "Add-on",
+                "Bundle"
+            ],
+            "tags": [
+                "Free",
+                "Firestone",
+                "Christmas"
+            ],
+            "platforms": [
+                "Windows"
+            ],
             "releaseDate": "2024-12-01",
             "price": {
                 "original": 0,
@@ -956,8 +1062,8 @@
             "isFree": true,
             "media": {
                 "titleImage": "",
-                "coverImage": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
-                "bannerImage": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
+                "coverImage": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-1rfax.png?resize=1&w=360&h=480&quality=medium",
+                "bannerImage": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-xn316.png",
                 "screenshots": [],
                 "videos": []
             },
@@ -967,8 +1073,13 @@
                 "agency": "PEGI"
             },
             "languages": {
-                "audio": ["English"],
-                "text": ["English", "Turkish"]
+                "audio": [
+                    "English"
+                ],
+                "text": [
+                    "English",
+                    "Turkish"
+                ]
             },
             "stats": {
                 "downloads": 1000000,

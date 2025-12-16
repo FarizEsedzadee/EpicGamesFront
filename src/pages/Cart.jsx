@@ -34,7 +34,7 @@ export default function Cart() {
 
   const handleCheckout = () => {
     clearCart();
-    alert('Satın alma tamamlandı! Oyunlar kütüphanenize eklendi (simülasyon).');
+    alert('Satın alma tamamlandı! Oyunlar kütüphanenize eklendi (satın alma sistemi aktif olmadığından simulasyon alert ilə yetindik).');
     navigate('/');
   };
 
