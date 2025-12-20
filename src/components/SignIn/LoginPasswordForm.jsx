@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/Input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import AlternativeCreateLink from './AlternativeCreateLink';
 
 export default function LoginPasswordForm() {
     const { login } = useAuth();
@@ -69,7 +70,7 @@ export default function LoginPasswordForm() {
             <div className='flex flex-col gap-4'>
                 <a href="#" className='text-[#26bbff] text-center '>Gizlilik politikası</a>
             </div>
-
+            <AlternativeCreateLink />
         </form>
     )
 }

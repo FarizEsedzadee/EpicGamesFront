@@ -6,6 +6,7 @@ import Footer from '@/components/Footer/Footer';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { Gift, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const FilterSection = ({ title, children, defaultOpen = true }) => {
@@ -18,8 +19,8 @@ const FilterSection = ({ title, children, defaultOpen = true }) => {
         className="w-full flex items-center justify-between py-4 text-white font-medium text-[14px] hover:text-gray-300 transition-colors"
       >
         <span>{title}</span>
-        {isOpen ? 
-          <ChevronUp size={16} className="text-gray-400" strokeWidth={2} /> : 
+        {isOpen ?
+          <ChevronUp size={16} className="text-gray-400" strokeWidth={2} /> :
           <ChevronDown size={16} className="text-gray-400" strokeWidth={2} />
         }
       </button>
@@ -35,9 +36,8 @@ const FilterSection = ({ title, children, defaultOpen = true }) => {
 const FilterItem = ({ label, isActive = false, onClick }) => (
   <button
     onClick={onClick}
-    className={`w-full text-left py-2 transition-colors ${
-      isActive ? 'text-[#0074e4]' : 'text-[#ababab] hover:text-white'
-    }`}
+    className={`w-full text-left py-2 transition-colors ${isActive ? 'text-[#0074e4]' : 'text-[#ababab] hover:text-white'
+      }`}
   >
     <span className="text-[13px]">{label}</span>
   </button>
@@ -57,9 +57,10 @@ export default function Wishlist() {
     platforms: []
   });
 
-  useEffect(() => {
-    if (!isAuthenticated) navigate('/login');
-  }, [isAuthenticated, navigate]);
+  // Guests should be able to view and manage wishlist locally — do not force redirect here.
+  // Adding to cart requires authentication and is checked when the user clicks the button.
+
+  const { addToCart } = useCart();
 
   const formatPrice = (value, currency = '₺') => {
     if (value === null || value === undefined) return '';
@@ -115,7 +116,7 @@ export default function Wishlist() {
         <Header />
         <main className="sm:max-w-[770px] lg:max-w-[1050px] xl:max-w-[1185px] 2xl:max-w-[1440px] mx-auto py-3">
           <SecondHeader />
-          
+
           <div className="px-5 py-10">
             {/* Header */}
             <div className="mb-8">
@@ -140,8 +141,8 @@ export default function Wishlist() {
                   <p className="text-[#88888a] mb-6">
                     Beğendiğin oyunları istek listene ekleyerek kolayca takip edebilirsin
                   </p>
-                  <Link 
-                    to="/browse" 
+                  <Link
+                    to="/browse"
                     className="inline-block bg-[#0074e4] hover:bg-[#0084f4] text-white font-semibold px-8 py-3 rounded transition-colors"
                   >
                     Oyunları Keşfet
@@ -169,9 +170,8 @@ export default function Wishlist() {
                             <button
                               key={option.value}
                               onClick={() => { setSortBy(option.value); setIsDropdownOpen(false); }}
-                              className={`w-full text-left px-4 py-2 text-sm whitespace-nowrap hover:bg-[#2a2a2a] transition-colors ${
-                                sortBy === option.value ? 'bg-[#0074e4] text-white' : 'text-white'
-                              }`}
+                              className={`w-full text-left px-4 py-2 text-sm whitespace-nowrap hover:bg-[#2a2a2a] transition-colors ${sortBy === option.value ? 'bg-[#0074e4] text-white' : 'text-white'
+                                }`}
                             >
                               {option.label}
                             </button>
@@ -185,7 +185,7 @@ export default function Wishlist() {
                   <div className="space-y-4">
                     {sortedWishlist.map((game) => {
                       if (!game || typeof game !== 'object' || !game.gameId) return null;
-                      
+
                       return (
                         <div key={game.gameId} className="bg-[#1a1a1a] rounded-lg overflow-hidden hover:bg-[#1e1e1e] transition-colors">
                           <div className="flex gap-4 p-4">
@@ -233,7 +233,19 @@ export default function Wishlist() {
                               <div className="flex items-center gap-3 mt-auto">
                                 <button onClick={() => removeFromWishlist(game.gameId)} className="text-[#88888a] hover:text-white text-sm transition-colors">Kaldır</button>
                                 <button className="p-2 hover:bg-[#2a2a2a] rounded transition-colors"><Gift size={18} className="text-[#88888a]" /></button>
-                                <Link to={`/game/${game.gameId}`} className="ml-auto px-5 py-2 bg-[#0074e4] hover:bg-[#0084f4] text-white rounded text-sm font-semibold transition-colors">Sepete Ekle</Link>
+                                <button
+                                  onClick={() => {
+                                    if (!isAuthenticated) {
+                                      navigate('/login');
+                                      return;
+                                    }
+                                    addToCart(game, 1);
+                                  }}
+                                  className="ml-auto px-5 py-2 bg-[#0074e4] hover:bg-[#0084f4] text-white rounded text-sm font-semibold transition-colors"
+                                  title={!isAuthenticated ? 'Sepete eklemek için giriş yapmanız gerekir' : 'Sepete ekle'}
+                                >
+                                  Sepete Ekle
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -247,7 +259,7 @@ export default function Wishlist() {
                 <div className="hidden lg:block w-64 flex-shrink-0">
                   <div className="sticky top-24">
                     <h3 className="text-white font-semibold text-base pb-4 border-b border-[#2a2a2a]">Filtreler</h3>
-                    
+
                     <FilterSection title="Etkinlikler">
                       <FilterItem label="YILBAŞI TATİLİ İNDİRİMİ" isActive={activeFilters.events?.includes('new-year-sale')} onClick={() => handleFilterChange('events', 'new-year-sale')} />
                     </FilterSection>
