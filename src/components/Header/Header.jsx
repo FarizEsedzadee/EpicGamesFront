@@ -73,21 +73,21 @@ export default function Header() {
                                             <ul>
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={FortniteLogo} className='w-[20px] h-[20px]' />
-                                                    <a href="https://www.epicgames.com/fortnite" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://www.epicgames.com/fortnite" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         Fortnite
                                                     </a>
                                                 </li>
 
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={RocketLeagueLogo} className='w-[20px] h-[20px]' />
-                                                    <a href="https://www.rocketleague.com" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://www.rocketleague.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         Rocket League
                                                     </a>
                                                 </li>
 
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={FallGuysLogo} className='w-[20px] h-[20px]' />
-                                                    <a href="https://www.fallguys.com" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://www.fallguys.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         Fall Guys
                                                     </a>
                                                 </li>
@@ -100,21 +100,21 @@ export default function Header() {
                                             <ul>
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={StoreImg} className='w-[20px] h-[20px]' />
-                                                    <a href="https://store.epicgames.com" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://store.epicgames.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         Epic Games Store
                                                     </a>
                                                 </li>
 
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={FabLogo} className='w-[20px] h-[20px]' />
-                                                    <a href="https://www.fab.com" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://www.fab.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         Fab
                                                     </a>
                                                 </li>
 
                                                 <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                                     <img src={ArtStationLogo} className='w-[20px] h-[20px]' />
-                                                    <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer">
+                                                    <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                         ArtStation
                                                     </a>
                                                 </li>
@@ -129,63 +129,63 @@ export default function Header() {
                                     <ul>
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={UnrealEngineLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.unrealengine.com" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.unrealengine.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Unreal Engine
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={FortniteLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.epicgames.com/fortnite/en-US/create" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.epicgames.com/fortnite/en-US/create" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Fortnite'ta Oluştur
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={MetaHumanLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.metahuman.com" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.metahuman.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 MetaHuman
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={TwinmotionLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.twinmotion.com" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.twinmotion.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Twinmotion
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={RealityScanLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.epicgames.com/site/en-US/realityscan" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.epicgames.com/site/en-US/realityscan" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 RealityScan
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://dev.epicgames.com/services" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://dev.epicgames.com/services" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Epic Online Services
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://store.epicgames.com/publish" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://store.epicgames.com/publish" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Epic Games Store'da Yayınla
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={ServicesLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://www.kidswebservices.com" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://www.kidswebservices.com" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Kids Web Services
                                             </a>
                                         </li>
 
                                         <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
                                             <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
-                                            <a href="https://dev.epicgames.com/community" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://dev.epicgames.com/community" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                                                 Geliştirici Topluluğu
                                             </a>
                                         </li>
@@ -197,12 +197,12 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <a href="/" className="uppercase">
+                    <a href="/" className="uppercase hover:text-white transition-colors">
                         <img src={StoreImg} alt="Store" />
                     </a>
 
                     <ul className='hidden md:flex items-center gap-8 text-[16px] ml-2'>
-                        <li><a href="#">Destek</a></li>
+                        <li><a href="#" className="hover:text-white transition-colors">Destek</a></li>
                         <li className="relative group z-[60]">
                             <button className="flex items-center gap-1 relative z-[60]">
                                 Dağıtım Yap <IoIosArrowDown />
@@ -299,25 +299,25 @@ export default function Header() {
                             >
                                 <DropdownMenuItem
                                     asChild
-                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] hover:text-white focus:bg-[#1b1b22]"
                                 >
                                     <Link to="/profile">Profil</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     asChild
-                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] hover:text-white focus:bg-[#1b1b22]"
                                 >
                                     <Link to="/wishlist">İstek Listesi</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     asChild
-                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] hover:text-white focus:bg-[#1b1b22]"
                                 >
                                     <Link to="/gifts">Hediyeler</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     asChild
-                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] focus:bg-[#1b1b22]"
+                                    className="px-4 py-3 text-[14px] hover:bg-[#1b1b22] hover:text-white focus:bg-[#1b1b22]"
                                 >
                                     <Link to="/cart">Sepet</Link>
                                 </DropdownMenuItem>
@@ -377,7 +377,7 @@ export default function Header() {
                                         <span className="text-sm font-semibold truncate max-w-[100px]">{displayName}</span>
                                     </Link>
                                 ) : (
-                                    <Button className="bg-[#343437] p-[0_10px] text-[14px]"><a href="/login">Giriş Yap</a></Button>
+                                    <Button className="bg-[#343437] p-[0_10px] text-[14px]"><a href="/login" className="block hover:text-white transition-colors">Giriş Yap</a></Button>
                                 )}
                             </div>
 
@@ -394,7 +394,7 @@ export default function Header() {
                                         transition={{ duration: 0.18, ease: "easeOut" }}
                                         className="flex flex-col items-start gap-4 mt-4 px-3">
                                         <h2 className='text-[32px] tracking-[-0.07rem] font-extrabold'>Menü</h2>
-                                        <a className='w-full' href="/support">Destek</a>
+                                        <a className='w-full block hover:text-white transition-colors' href="/support">Destek</a>
                                         <button className='flex items-center justify-between w-full' onClick={() => setShowDistribution(true)}>Dağıtım Yap <IoIosArrowForward /></button>
                                     </motion.div>
                                 }

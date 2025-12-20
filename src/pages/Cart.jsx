@@ -6,6 +6,7 @@ import Footer from '@/components/Footer/Footer';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useLocation } from 'react-router-dom';
 
 const formatPrice = (value, currency = '₺') => {
   if (value === null || value === undefined) return '';
@@ -26,11 +27,12 @@ export default function Cart() {
   const { items, removeFromCart, updateQuantity, totals, clearCart } = useCart();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+  const location = useLocation();
   const { t } = useLanguage();
 
   useEffect(() => {
-    if (!isAuthenticated) navigate('/login');
-  }, [isAuthenticated, navigate]);
+    if (!isAuthenticated) navigate('/login', { state: { from: location.pathname } });
+  }, [isAuthenticated, navigate, location]);
 
   const handleCheckout = () => {
     clearCart();

@@ -3,6 +3,7 @@ import Header from '@/components/Header/Header';
 import SecondHeader from '@/components/Header/SecondHeader';
 import Footer from '@/components/Footer/Footer';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -37,12 +38,13 @@ const tabs = [
 export default function Gifts() {
   const [activeTab, setActiveTab] = useState('all');
   const { isAuthenticated } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();
 
   useEffect(() => {
-    if (!isAuthenticated) navigate('/login');
-  }, [isAuthenticated, navigate]);
+    if (!isAuthenticated) navigate('/login', { state: { from: location.pathname } });
+  }, [isAuthenticated, navigate, location]);
 
   const filtered = useMemo(() => {
     if (activeTab === 'all') return mockGifts;
@@ -70,11 +72,10 @@ export default function Gifts() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`pb-2 px-1 text-sm font-semibold transition-colors ${
-                    activeTab === tab.id
+                  className={`pb-2 px-1 text-sm font-semibold transition-colors ${activeTab === tab.id
                       ? 'text-white border-b-2 border-white'
                       : 'text-[#8c8c90] hover:text-white'
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>

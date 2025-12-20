@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Header from '@/components/Header/Header';
 import SecondHeader from '@/components/Header/SecondHeader';
 import Footer from '@/components/Footer/Footer';
@@ -47,6 +47,7 @@ export default function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useLanguage();
   const [sortBy, setSortBy] = useState('discount');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -236,7 +237,7 @@ export default function Wishlist() {
                                 <button
                                   onClick={() => {
                                     if (!isAuthenticated) {
-                                      navigate('/login');
+                                      navigate('/login', { state: { from: location.pathname } });
                                       return;
                                     }
                                     addToCart(game, 1);

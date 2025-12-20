@@ -1,12 +1,20 @@
 import React from 'react'
 import { RiArrowLeftSLine } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function BackButton({ onClick }) {
     const navigate = useNavigate();
 
+    const location = useLocation();
+
     const handleClick = (e) => {
         if (typeof onClick === 'function') return onClick(e);
+
+        // If the route that led here provided a `from` path (common when redirecting to /login), use it
+        if (location?.state?.from) {
+            navigate(location.state.from);
+            return;
+        }
 
         // Default behavior: go back if possible, otherwise go to home
         if (window.history && window.history.length > 1) {

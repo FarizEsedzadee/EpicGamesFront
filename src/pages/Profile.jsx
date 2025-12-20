@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '@/components/Header/Header';
 import SecondHeader from '@/components/Header/SecondHeader';
 import Footer from '@/components/Footer/Footer';
@@ -8,6 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 export default function Profile() {
   const { currentUser, updateProfile, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [form, setForm] = useState({
     displayName: '',
     email: '',
@@ -21,7 +22,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate('/login', { state: { from: location.pathname } });
       return;
     }
     if (currentUser) {
