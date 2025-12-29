@@ -57,106 +57,142 @@ export default function Header() {
                             <div></div>
                             {/* Invisible bridge to prevent dropdown from closing */}
                             <div className="absolute top-full left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
-                            <ul className='hidden group-hover:flex absolute top-[calc(100%+1rem)] left-0 w-[550px] h-[300px] bg-[rgba(48,48,52,0.7)]
-                                   backdrop-blur-[50px] rounded-[16px] border border-[rgba(255,255,255,0.1)]
-                                   shadow-[0px_32px_16px_rgba(0,0,0,0.1), 0px_16px_8px_rgba(0,0,0,0.1), 0px_8px_4px_rgba(0,0,0,0.1), 0px_4px_2px_rgba(0,0,0,0.1), 0px_2px_1px_rgba(0,0,0,0.1)]
-                                   justify-between items-start h-auto w-[38.75rem] list-none z-[60] pointer-events-auto'
+                            <ul
+                                className='hidden group-hover:flex absolute top-[calc(100%+1rem)] left-0
+  bg-[rgba(48,48,52,0.7)] backdrop-blur-[50px]
+  rounded-[16px] border border-[rgba(255,255,255,0.1)]
+  shadow-[0px_32px_16px_rgba(0,0,0,0.1),0px_16px_8px_rgba(0,0,0,0.1),0px_8px_4px_rgba(0,0,0,0.1),0px_4px_2px_rgba(0,0,0,0.1),0px_2px_1px_rgba(0,0,0,0.1)]
+  justify-between list-none z-[60] pointer-events-auto w-[38.75rem]'
                             >
+                                {/* SOL BLOK */}
                                 <li className='flex-1'>
-                                    <ul className='flex flex-col justify-between items-start h-full border-r border-[rgba(255,255,255,0.1)]'>
-                                        <li className='flex-1 p-[32px] w-full border-b border-[rgba(255,255,255,0.1)]'>
-                                            <h2 className='text-[20px] pb-[10px] font-[700] leading-[120%]'>Oyna</h2>
+                                    <ul className='flex flex-col h-full border-r border-[rgba(255,255,255,0.1)]'>
+                                        {/* OYNA */}
+                                        <li className='p-[32px] border-b border-[rgba(255,255,255,0.1)]'>
+                                            <h2 className='text-[20px] pb-[10px] font-[700]'>Oyna</h2>
                                             <ul>
-                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={FortniteLogo} alt="Fortnite" className='w-[20px] h-[20px]' />
-                                                    Fortnite
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={FortniteLogo} className='w-[20px] h-[20px]' />
+                                                    <a href="https://www.epicgames.com/fortnite" target="_blank" rel="noopener noreferrer">
+                                                        Fortnite
+                                                    </a>
                                                 </li>
 
-                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={RocketLeagueLogo} alt="Rocket League" className='w-[20px] h-[20px]' />
-                                                    Rocket League
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={RocketLeagueLogo} className='w-[20px] h-[20px]' />
+                                                    <a href="https://www.rocketleague.com" target="_blank" rel="noopener noreferrer">
+                                                        Rocket League
+                                                    </a>
                                                 </li>
 
-                                                <li className='p-[4px_0px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={FallGuysLogo} alt="Fall Guys" className='w-[20px] h-[20px]' />
-                                                    Fall Guys
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={FallGuysLogo} className='w-[20px] h-[20px]' />
+                                                    <a href="https://www.fallguys.com" target="_blank" rel="noopener noreferrer">
+                                                        Fall Guys
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </li>
 
-                                        <li className='flex-1 p-[32px]'>
-                                            <h2 className='text-[20px] pb-[15px] font-[700] leading-[120%]'>Keşfet</h2>
+                                        {/* KEŞFET */}
+                                        <li className='p-[32px]'>
+                                            <h2 className='text-[20px] pb-[15px] font-[700]'>Keşfet</h2>
                                             <ul>
-                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={StoreImg} alt="Epic Games Store" className='w-[20px] h-[20px]' />
-                                                    <a href="/">Epic Games Store</a>
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={StoreImg} className='w-[20px] h-[20px]' />
+                                                    <a href="https://store.epicgames.com" target="_blank" rel="noopener noreferrer">
+                                                        Epic Games Store
+                                                    </a>
                                                 </li>
 
-                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={FabLogo} alt="Fab" className='w-[20px] h-[20px]' />
-                                                    <a href="#">Fab</a>
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={FabLogo} className='w-[20px] h-[20px]' />
+                                                    <a href="https://www.fab.com" target="_blank" rel="noopener noreferrer">
+                                                        Fab
+                                                    </a>
                                                 </li>
 
-                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                                    <img src={ArtStationLogo} alt="ArtStation" className='w-[20px] h-[20px]' />
-                                                    <a href="#">ArtStation</a>
+                                                <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                                    <img src={ArtStationLogo} className='w-[20px] h-[20px]' />
+                                                    <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer">
+                                                        ArtStation
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
 
+                                {/* SAĞ BLOK – OLUŞTUR */}
                                 <li className='flex-1 p-[32px]'>
-                                    <h2 className='text-[20px] pb-[6px] font-[700] leading-[120%]'>Oluştur</h2>
+                                    <h2 className='text-[20px] pb-[6px] font-[700]'>Oluştur</h2>
                                     <ul>
-
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={UnrealEngineLogo} alt="Unreal Engine" className='w-[20px] h-[20px]' />
-                                            <a href="#">Unreal Engine</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={UnrealEngineLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.unrealengine.com" target="_blank" rel="noopener noreferrer">
+                                                Unreal Engine
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={FortniteLogo} alt="Fortnite'ta Oluştur" className='w-[20px] h-[20px]' />
-                                            <a href="#">Fortnite'ta Oluştur</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={FortniteLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.epicgames.com/fortnite/en-US/create" target="_blank" rel="noopener noreferrer">
+                                                Fortnite'ta Oluştur
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={MetaHumanLogo} alt="MetaHuman" className='w-[20px] h-[20px]' />
-                                            <a href="#">MetaHuman</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={MetaHumanLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.metahuman.com" target="_blank" rel="noopener noreferrer">
+                                                MetaHuman
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={TwinmotionLogo} alt="Twinmotion" className='w-[20px] h-[20px]' />
-                                            <a href="#">Twinmotion</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={TwinmotionLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.twinmotion.com" target="_blank" rel="noopener noreferrer">
+                                                Twinmotion
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={RealityScanLogo} alt="RealityScan" className='w-[20px] h-[20px]' />
-                                            <a href="#">RealitiyScan</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={RealityScanLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.epicgames.com/site/en-US/realityscan" target="_blank" rel="noopener noreferrer">
+                                                RealityScan
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={EpicGamesLogo} alt="Epic Online Services" className='w-[20px] h-[20px]' />
-                                            <a href="#">Epic Online Services</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://dev.epicgames.com/services" target="_blank" rel="noopener noreferrer">
+                                                Epic Online Services
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={EpicGamesLogo} alt="Store'da Yayınla" className='w-[20px] h-[20px]' />
-                                            <a href="#">Epic Games Store'da Yayınla</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://store.epicgames.com/publish" target="_blank" rel="noopener noreferrer">
+                                                Epic Games Store'da Yayınla
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={ServicesLogo} alt="Kids Web Services" className='w-[20px] h-[20px]' />
-                                            <a href="#">Kids Web Services</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={ServicesLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://www.kidswebservices.com" target="_blank" rel="noopener noreferrer">
+                                                Kids Web Services
+                                            </a>
                                         </li>
 
-                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] w-[calc(100%+0.5rem)] flex items-center'>
-                                            <img src={EpicGamesLogo} alt="Geliştirici Topluluğu" className='w-[20px] h-[20px]' />
-                                            <a href="#">Geliştirici Topluluğu</a>
+                                        <li className='py-[4px] h-[2.5rem] gap-[0.75rem] flex items-center'>
+                                            <img src={EpicGamesLogo} className='w-[20px] h-[20px]' />
+                                            <a href="https://dev.epicgames.com/community" target="_blank" rel="noopener noreferrer">
+                                                Geliştirici Topluluğu
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
+
 
                         </div>
                     </div>
@@ -166,7 +202,7 @@ export default function Header() {
                     </a>
 
                     <ul className='hidden md:flex items-center gap-8 text-[16px] ml-2'>
-                        <li><a href="#">Destek</a></li>
+                        <li><a target='_blank' href="https://www.epicgames.com/help/tr/">Destek</a></li>
                         <li className="relative group z-[60]">
                             <button className="flex items-center gap-1 relative z-[60]">
                                 Dağıtım Yap <IoIosArrowDown />

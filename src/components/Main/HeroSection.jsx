@@ -26,10 +26,10 @@ export default function HeroSection() {
             try {
                 const res = await GameService.getAllGames();
                 if (mounted) {
-                    // Sort by popularityRank and take only top 6
+                    // Sort by rating descending and take only top 3
                     const sortedGames = (res || [])
-                        .sort((a, b) => (a.popularityRank || 999) - (b.popularityRank || 999))
-                        .slice(0, 6);
+                        .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+                        .slice(0, 3);
                     setGames(sortedGames);
                 }
             } catch (err) {
@@ -47,14 +47,14 @@ export default function HeroSection() {
     // Progress bar animation
     useEffect(() => {
         if (!mainSwiper || loading) return;
-        
+
         setProgress(0);
         let startTime = Date.now();
-        
+
         const interval = setInterval(() => {
             const elapsed = Date.now() - startTime;
             const newProgress = (elapsed / AUTOPLAY_DELAY) * 100;
-            
+
             if (newProgress >= 100) {
                 setProgress(100);
                 clearInterval(interval);
@@ -69,7 +69,7 @@ export default function HeroSection() {
     const handleThumbClick = (game, index, e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         // If clicking a different slide, switch to that slide
         if (index !== activeIndex) {
             if (mainSwiper && !mainSwiper.destroyed) {
@@ -86,7 +86,7 @@ export default function HeroSection() {
             }
             return;
         }
-        
+
         // If clicking the already active slide, navigate to game detail
         if (index === activeIndex && game.gameId) {
             navigate(`/game/${game.gameId}`);
@@ -144,27 +144,27 @@ export default function HeroSection() {
                                     </div>
 
                                     {/* Mətn Hissəsi */}
-                                    <div className="absolute bottom-10 left-15 max-w-[480px] z-20 text-white flex flex-col items-start">
+                                    <div className="absolute bottom-4 md:bottom-10 left-4 md:left-15 max-w-full md:max-w-[480px] z-20 text-white flex flex-col items-start">
 
                                         {/* COVER IMAGE / LOGO */}
-                                        <h2 className="uppercase tracking-tight mb-4 drop-shadow-md">
+                                        <h2 className="uppercase tracking-tight mb-2 md:mb-4 drop-shadow-md">
                                             {game.media.titleImage && (
-                                                <img src={game.media.titleImage} width={240} />
+                                                <img src={game.media.titleImage} className="w-30 md:w-60" />
                                             )}
                                         </h2>
 
                                         {/* PROMO TITLE */}
-                                        <h3 className="text-[12px] font-bold uppercase tracking-[0.15em] mb-3 drop-shadow-md leading-[1.4]">
+                                        <h3 className="text-[10px] md:text-[12px] font-bold uppercase tracking-[0.15em] mb-2 md:mb-3 drop-shadow-md leading-[1.4]">
                                             {game.promoText || ''}
                                         </h3>
 
                                         {/* DESCRIPTION */}
-                                        <p className="text-[15px] text-gray-200 font-normal leading-[1.55] mb-5 drop-shadow-md">
+                                        <p className="text-sm md:text-[15px] text-gray-200 font-normal leading-[1.55] mb-3 md:mb-5 drop-shadow-md">
                                             {game.description ? `Released: ${game.description}` : ''}
                                         </p>
 
                                         {/* PRICE SECTION */}
-                                        <div className="mb-5 flex items-center gap-3 text-gray-100 text-[14px]">
+                                        <div className="mb-3 md:mb-5 flex items-center gap-2 md:gap-3 text-gray-100 text-xs md:text-[14px]">
 
                                             {(() => {
                                                 const price = game.price || {};
@@ -176,15 +176,15 @@ export default function HeroSection() {
                                                 if (discount > 0 && original > current) {
                                                     return (
                                                         <>
-                                                            <span className="bg-blue-500 text-white text-[11px] px-2 py-1 rounded-full font-bold">
+                                                            <span className="bg-blue-500 text-white text-[9px] md:text-[11px] px-1 md:px-2 py-0.5 md:py-1 rounded-full font-bold">
                                                                 -{discount}%
                                                             </span>
 
-                                                            <div className="text-gray-300 line-through text-[13px]">
+                                                            <div className="text-gray-300 line-through text-[11px] md:text-[13px]">
                                                                 {formatPrice(original, price.currency)}
                                                             </div>
 
-                                                            <div className="text-[13px] font-medium text-white">
+                                                            <div className="text-[11px] md:text-[13px] font-medium text-white">
                                                                 {(current === 0 || discount === 100) ? "Ücretsiz" : formatPrice(current, price.currency)}
                                                             </div>
                                                         </>
@@ -193,9 +193,9 @@ export default function HeroSection() {
 
                                                 // NORMAL PRICE
                                                 return (
-                                                    <div className="text-[13px] font-medium">
+                                                    <div className="text-[11px] md:text-[13px] font-medium">
                                                         {
-                                                            (game.isFree) ? <div className="text-[18px] font-medium py-3"></div>
+                                                            (game.isFree) ? <div className="text-sm md:text-[18px] font-medium py-1 md:py-3"></div>
                                                                 : formatPrice(current || original, price.currency)
                                                         }
                                                     </div>
@@ -204,37 +204,37 @@ export default function HeroSection() {
                                         </div>
 
                                         {/* BUTTONS */}
-                                        <div className="flex items-center gap-3">
+                                        <div className="flex items-center gap-2 md:gap-3">
 
                                             {/* BUY / CLAIM BUTTON */}
                                             {game.gameId && (
-                                                <Link 
+                                                <Link
                                                     to={`/game/${game.gameId}`}
                                                     className="bg-white text-black hover:bg-gray-200 transition-colors duration-200 
-                               px-8 py-3.5 rounded-lg text-[15px] font-semibold tracking-wide inline-block text-center"
+                               px-4 md:px-8 py-2 md:py-3.5 rounded-lg text-sm md:text-[15px] font-semibold tracking-wide inline-block text-center"
                                                 >
                                                     {game.isFree ? 'Ücretsiz' : 'Hemen Satın Al'}
                                                 </Link>
                                             )}
                                             {!game.gameId && (
                                                 <button className="bg-white text-black hover:bg-gray-200 transition-colors duration-200 
-                               px-8 py-3.5 rounded-lg text-[15px] font-semibold tracking-wide">
+                               px-4 md:px-8 py-2 md:py-3.5 rounded-lg text-sm md:text-[15px] font-semibold tracking-wide">
                                                     {game.isFree ? 'Ücretsiz' : 'Hemen Satın Al'}
                                                 </button>
                                             )}
 
                                             {/* GIFT BUTTON */}
-                                            <button className="w-[48px] h-[48px] flex items-center justify-center 
+                                            <button className="w-10 md:w-[48px] h-10 md:h-[48px] flex items-center justify-center 
                            bg-[#2f2f2f]/90 hover:bg-[#2f2f2f] transition-colors duration-200 
                            rounded-lg border border-white/10 backdrop-blur-sm">
-                                                <FiGift size={20} className="text-white opacity-80" />
+                                                <FiGift size={16} className="md:w-5 md:h-5 text-white opacity-80" />
                                             </button>
 
                                             {/* WISHLIST BUTTON */}
-                                            <button className="w-[48px] h-[48px] flex items-center justify-center 
+                                            <button className="w-10 md:w-[48px] h-10 md:h-[48px] flex items-center justify-center 
                            bg-[#2f2f2f]/90 hover:bg-[#2f2f2f] transition-colors duration-200 
                            rounded-lg border border-white/10 backdrop-blur-sm">
-                                                <FiBookmark size={20} className="text-white opacity-80" />
+                                                <FiBookmark size={16} className="md:w-5 md:h-5 text-white opacity-80" />
                                             </button>
                                         </div>
                                     </div>
@@ -263,44 +263,44 @@ export default function HeroSection() {
                         ) : (
                             games.map((game, index) => {
                                 const isActive = index === activeIndex;
-                                
+
                                 return (
-                                <SwiperSlide key={game.gameId || game.id} className="!h-auto cursor-pointer rounded-xl overflow-hidden">
-                                    <div 
-                                        onClick={(e) => handleThumbClick(game, index, e)}
-                                        className={`group flex items-center gap-4 p-3 h-full w-full rounded-xl transition-all duration-300
+                                    <SwiperSlide key={game.gameId || game.id} className="!h-auto cursor-pointer rounded-xl overflow-hidden">
+                                        <div
+                                            onClick={(e) => handleThumbClick(game, index, e)}
+                                            className={`group flex items-center gap-4 p-3 h-full w-full rounded-xl transition-all duration-300
                                 hover:bg-[#2a2a2a] 
                                 relative
                                 border border-transparent
                                 ${isActive ? 'bg-[#2a2a2a]' : ''}
                                 ${isActive ? 'before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-[60%] before:bg-white before:rounded-full' : ''}
                                 `}>
-                                        {/* Loading Bar - Only for active slide */}
-                                        {isActive && (
-                                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-transparent overflow-hidden z-10">
-                                                <div 
-                                                    className="h-full bg-white transition-all duration-75 ease-linear"
-                                                    style={{ width: `${progress}%` }}
+                                            {/* Loading Bar - Only for active slide */}
+                                            {isActive && (
+                                                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-transparent overflow-hidden z-10">
+                                                    <div
+                                                        className="h-full bg-white transition-all duration-75 ease-linear"
+                                                        style={{ width: `${progress}%` }}
+                                                    />
+                                                </div>
+                                            )}
+
+                                            {/* Kiçik Şəkil */}
+                                            <div className="w-12 h-16 flex-shrink-0 overflow-hidden rounded bg-gray-800">
+                                                <img
+                                                    src={game.media.bannerImage || ''}
+                                                    alt={game.title}
+                                                    className={`w-full h-full object-cover transition-opacity ${isActive ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`}
                                                 />
                                             </div>
-                                        )}
 
-                                        {/* Kiçik Şəkil */}
-                                        <div className="w-12 h-16 flex-shrink-0 overflow-hidden rounded bg-gray-800">
-                                            <img
-                                                src={game.media.bannerImage || ''}
-                                                alt={game.title}
-                                                className={`w-full h-full object-cover transition-opacity ${isActive ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`}
-                                            />
+                                            {/* Oyun Adı */}
+                                            <span className={`text-sm font-medium transition-colors ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
+                                                {game.title}
+                                            </span>
+
                                         </div>
-
-                                        {/* Oyun Adı */}
-                                        <span className={`text-sm font-medium transition-colors ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
-                                            {game.title}
-                                        </span>
-
-                                    </div>
-                                </SwiperSlide>
+                                    </SwiperSlide>
                                 );
                             })
                         )}

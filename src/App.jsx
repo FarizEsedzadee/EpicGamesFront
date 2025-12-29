@@ -15,6 +15,7 @@ import { CartProvider } from "./contexts/CartContext"
 import { AuthProvider } from "./contexts/AuthContext"
 import { LanguageProvider } from "./contexts/LanguageContext"
 import './App.css'
+import ProtectedRoute from "./routes/ProtectedRoute"
 
 function App() {
 
@@ -27,9 +28,32 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/browse" element={<Browse />} />
               <Route path="/game/:gameId" element={<GameDetail />} />
-              <Route path="/wishlist" element={<Wishlist />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/gifts" element={<Gifts />} />
+
+              <Route
+                path="/wishlist"
+                element={
+                  <ProtectedRoute>
+                    <Wishlist />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <Cart />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/gifts"
+                element={
+                  <ProtectedRoute>
+                    <Gifts />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/profile" element={<Profile />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/register" element={<SignUp />} />

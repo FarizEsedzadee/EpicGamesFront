@@ -4,25 +4,31 @@ import { Label } from '@/components/ui/Label';
 import { Input } from '@/components/ui/Input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useAuth } from '@/contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+import AlternativeCreateLink from './AlternativeCreateLink';
 
 export default function LoginPasswordForm() {
     const { login } = useAuth();
-    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('');
+        setError("");
+
         try {
-            login(email, password);
-            navigate('/');
+            await login(email, password);
+            navigate(from, { replace: true });
         } catch (err) {
-            setError(err.message || 'Giriş yapılamadı');
+            setError(err.message || "Giriş yapılamadı");
         }
     };
+
+
 
     return (
         <form
@@ -70,6 +76,7 @@ export default function LoginPasswordForm() {
                 <a href="#" className='text-[#26bbff] text-center '>Gizlilik politikası</a>
             </div>
 
+            <AlternativeCreateLink />
         </form>
     )
 }
