@@ -39,15 +39,15 @@ export default function GameCard({ game }) {
   };
 
   return (
-    <Link to={`/game/${game.gameId}`} className="group cursor-pointer flex flex-col h-full">
+    <Link to={`/game/${game.gameId}`} preventScrollReset className="group cursor-pointer flex flex-col h-full">
       <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-3 bg-[#202020]">
         <img src={game.media?.coverImage} alt={game.title} className="h-full object-cover transition-opacity duration-300 group-hover:opacity-90" />
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={handleWishlistClick}
             className={`p-1.5 rounded-full transition-colors ${inWishlist
-                ? 'bg-white text-black hover:bg-gray-200'
-                : 'bg-black/70 text-white hover:bg-black'
+              ? 'bg-white text-black hover:bg-gray-200'
+              : 'bg-black/70 text-white hover:bg-black'
               }`}
             title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
           >

@@ -10,9 +10,9 @@ export default function BackButton({ onClick }) {
     const handleClick = (e) => {
         if (typeof onClick === 'function') return onClick(e);
 
-        // If the route that led here provided a `from` path (common when redirecting to /login), use it
-        if (location?.state?.from) {
-            navigate(location.state.from);
+        // If we're on login or signup pages and have a from state, go to home instead of back to protected page
+        if ((location.pathname === '/login' || location.pathname.startsWith('/signup')) && location?.state?.from) {
+            navigate('/');
             return;
         }
 

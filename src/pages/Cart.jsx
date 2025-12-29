@@ -80,7 +80,7 @@ export default function Cart() {
                         key={item.gameId}
                         className="flex gap-4 bg-[#0f0f13] border border-[#1f1f24] rounded-xl p-4"
                       >
-                        <Link to={`/game/${item.gameId}`} className="flex-shrink-0">
+                        <Link to={`/game/${item.gameId}`} preventScrollReset className="flex-shrink-0">
                           <div className="w-28 h-36 overflow-hidden rounded-lg bg-[#1c1c22]">
                             <img
                               src={item.media?.coverImage || item.media?.bannerImage}

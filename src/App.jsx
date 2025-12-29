@@ -29,14 +29,7 @@ function App() {
               <Route path="/browse" element={<Browse />} />
               <Route path="/game/:gameId" element={<GameDetail />} />
 
-              <Route
-                path="/wishlist"
-                element={
-                  <ProtectedRoute>
-                    <Wishlist />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/wishlist" element={<Wishlist />} />
 
               <Route
                 path="/cart"

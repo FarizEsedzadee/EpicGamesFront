@@ -232,33 +232,48 @@ export default function HeroSection() {
                     <Swiper
                         onSwiper={setThumbsSwiper}
                         direction="vertical"
-                        slidesPerView={5}
+                        slidesPerView={6}
                         spaceBetween={10}
                         allowTouchMove={false}
+                        watchSlidesProgress={false}
+                        watchSlidesVisibility={false}
                         className="h-full"
                     >
                         {loading ? (
                             <SwiperSlide>
-                                <div className="flex items-center justify-center h-full text-gray-400">Yükleniyor...</div>
+                                <div className="flex items-center justify-center h-full text-gray-400">
+                                    Yükleniyor...
+                                </div>
                             </SwiperSlide>
                         ) : (
                             games.map((game, index) => {
                                 const isActive = index === activeIndex;
 
                                 return (
-                                    <SwiperSlide key={game.gameId || game.id} className="!h-auto cursor-pointer rounded-xl overflow-hidden">
-                                        <div
+                                    <SwiperSlide
+                                        key={game.gameId || game.id}
+                                        className="!h-auto rounded-xl overflow-hidden"
+                                    >
+                                        {/* CLICKABLE ALAN – SWIPER DIŞI */}
+                                        <button
+                                            type="button"
                                             onClick={(e) => handleThumbClick(game, index, e)}
-                                            className={`group flex items-center gap-4 p-3 h-full w-full rounded-xl transition-all duration-300
-                                hover:bg-[#2a2a2a] 
-                                relative
-                                border border-transparent
-                                ${isActive ? 'bg-[#2a2a2a]' : ''}
-                                ${isActive ? 'before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-[60%] before:bg-white before:rounded-full' : ''}
-                                `}>
-                                            {/* Loading Bar - Only for active slide */}
+                                            className={`
+                group w-full flex items-center gap-4 p-3 text-left
+                rounded-xl transition-all duration-300
+                hover:bg-[#2a2a2a]
+                relative
+                border border-transparent
+                ${isActive ? 'bg-[#2a2a2a]' : ''}
+                ${isActive
+                                                    ? 'before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-[60%] before:bg-white before:rounded-full'
+                                                    : ''
+                                                }
+              `}
+                                        >
+                                            {/* Progress Bar */}
                                             {isActive && (
-                                                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-transparent overflow-hidden z-10">
+                                                <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden">
                                                     <div
                                                         className="h-full bg-white transition-all duration-75 ease-linear"
                                                         style={{ width: `${progress}%` }}
@@ -266,27 +281,35 @@ export default function HeroSection() {
                                                 </div>
                                             )}
 
-                                            {/* Kiçik Şəkil */}
+                                            {/* Thumbnail */}
                                             <div className="w-12 h-16 flex-shrink-0 overflow-hidden rounded bg-gray-800">
                                                 <img
-                                                    src={game.media.bannerImage || ''}
+                                                    src={game.media?.bannerImage || ''}
                                                     alt={game.title}
-                                                    className={`w-full h-full object-cover transition-opacity ${isActive ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`}
+                                                    className={`w-full h-full object-cover transition-opacity ${isActive
+                                                        ? 'opacity-100'
+                                                        : 'opacity-80 group-hover:opacity-100'
+                                                        }`}
                                                 />
                                             </div>
 
-                                            {/* Oyun Adı */}
-                                            <span className={`text-sm font-medium transition-colors ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
+                                            {/* Title */}
+                                            <span
+                                                className={`text-sm font-medium transition-colors ${isActive
+                                                    ? 'text-white'
+                                                    : 'text-gray-400 group-hover:text-white'
+                                                    }`}
+                                            >
                                                 {game.title}
                                             </span>
-
-                                        </div>
+                                        </button>
                                     </SwiperSlide>
                                 );
                             })
                         )}
                     </Swiper>
                 </div>
+
 
             </div>
         </div>

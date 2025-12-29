@@ -18,13 +18,13 @@ export default function VerticalGameItem({ game, showTrial = false }) {
   };
 
   return (
-    <Link to={`/game/${game.gameId}`} className="group cursor-pointer flex gap-4 p-3 rounded-lg hover:bg-[#1a1a1a] transition-colors">
+    <Link to={`/game/${game.gameId}`} preventScrollReset className="group cursor-pointer flex gap-4 p-3 rounded-lg hover:bg-[#1a1a1a] transition-colors">
       {/* Game Cover Image */}
       <div className="relative w-20 h-28 flex-shrink-0 rounded overflow-hidden bg-[#202020]">
-        <img 
-          src={game.media?.coverImage || game.media?.bannerImage} 
-          alt={game.title} 
-          className="w-full h-full object-cover" 
+        <img
+          src={game.media?.coverImage || game.media?.bannerImage}
+          alt={game.title}
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -58,8 +58,8 @@ export default function VerticalGameItem({ game, showTrial = false }) {
                 {formatPrice(game.price.original, game.price.currency)}
               </span>
               <span className="text-white text-sm font-medium">
-                {game.price.discountRate === 100 
-                  ? 'Ücretsiz' 
+                {game.price.discountRate === 100
+                  ? 'Ücretsiz'
                   : formatPrice(game.price.current, game.price.currency)}
               </span>
             </>

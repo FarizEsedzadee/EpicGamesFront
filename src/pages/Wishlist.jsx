@@ -191,7 +191,7 @@ export default function Wishlist() {
                         <div key={game.gameId} className="bg-[#1a1a1a] rounded-lg overflow-hidden hover:bg-[#1e1e1e] transition-colors">
                           <div className="flex gap-4 p-4">
                             {/* Game Image */}
-                            <Link to={`/game/${game.gameId}`} className="flex-shrink-0">
+                            <Link to={`/game/${game.gameId}`} preventScrollReset className="flex-shrink-0">
                               <div className="w-[100px] h-[130px] rounded overflow-hidden bg-[#202020]">
                                 <img src={game.media?.coverImage} alt={String(game.title || '')} className="w-full h-full object-cover" />
                               </div>
@@ -204,7 +204,7 @@ export default function Wishlist() {
                                   <span className="inline-block bg-[#0074e4] text-white text-[10px] font-semibold px-2 py-0.5 rounded mb-2">
                                     {typeof game.productType === 'string' ? game.productType : 'Ana Oyun'}
                                   </span>
-                                  <Link to={`/game/${game.gameId}`}>
+                                  <Link to={`/game/${game.gameId}`} preventScrollReset>
                                     <h3 className="text-white text-lg font-semibold hover:underline">{String(game.title || 'Untitled')}</h3>
                                   </Link>
                                 </div>

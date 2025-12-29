@@ -54,7 +54,7 @@ export default function BrowseGameCard({ game }) {
   };
 
   return (
-    <Link to={`/game/${game.gameId}`} className="group cursor-pointer flex flex-col h-full">
+    <Link to={`/game/${game.gameId}`} preventScrollReset className="group cursor-pointer flex flex-col h-full">
       <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-3 bg-[#202020]">
         <img
           src={game.media?.coverImage}
@@ -65,8 +65,8 @@ export default function BrowseGameCard({ game }) {
           <button
             onClick={handleWishlistClick}
             className={`p-1.5 rounded-full transition-colors ${inWishlist
-                ? 'bg-white text-black hover:bg-gray-200'
-                : 'bg-black/70 text-white hover:bg-black'
+              ? 'bg-white text-black hover:bg-gray-200'
+              : 'bg-black/70 text-white hover:bg-black'
               }`}
             title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
           >
