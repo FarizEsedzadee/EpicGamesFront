@@ -75,10 +75,6 @@ export default function LoginPasswordForm() {
             <div className='flex flex-col gap-4'>
                 <a href="#" className='text-[#26bbff] text-center '>Gizlilik politikası</a>
             </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
             <AlternativeCreateLink />
         </form>
     )
