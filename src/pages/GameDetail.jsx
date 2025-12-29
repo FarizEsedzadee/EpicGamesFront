@@ -7,16 +7,21 @@ import data from '@/data/data.json';
 import { Star, Share2, Flag, Heart } from 'lucide-react';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function GameDetail() {
   const { gameId } = useParams();
   const [activeTab, setActiveTab] = useState('overview');
   const wishlistContext = useWishlist();
   const isInWishlist = wishlistContext?.isInWishlist || (() => false);
-  const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
+  const toggleWishlist = wishlistContext?.toggleWishlist || (() => { });
   const cartContext = useCart();
   const isInCart = cartContext?.isInCart || (() => false);
-  const addToCart = cartContext?.addToCart || (() => {});
+  const addToCart = cartContext?.addToCart || (() => { });
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const game = useMemo(() => {
     if (!gameId) return null;
@@ -74,7 +79,7 @@ export default function GameDetail() {
         <Header />
         <main className="sm:max-w-[770px] lg:max-w-[1050px] xl:max-w-[1185px] 2xl:max-w-[1440px] mx-auto py-3">
           <SecondHeader />
-          
+
           <div className="px-5 py-10">
             {/* Game Title and Rating */}
             <div className="mb-6">
@@ -105,11 +110,10 @@ export default function GameDetail() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`pb-4 px-2 font-medium transition-colors ${
-                    activeTab === tab.id
+                  className={`pb-4 px-2 font-medium transition-colors ${activeTab === tab.id
                       ? 'text-white border-b-2 border-white'
                       : 'text-[#9f9fa1] hover:text-white'
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -353,8 +357,8 @@ export default function GameDetail() {
                           </span>
                         </div>
                         <span className="text-2xl font-bold">
-                          {game.price.discountRate === 100 
-                            ? 'Ücretsiz' 
+                          {game.price.discountRate === 100
+                            ? 'Ücretsiz'
                             : formatPrice(game.price.current, game.price.currency)}
                         </span>
                       </div>
@@ -376,6 +380,10 @@ export default function GameDetail() {
                       if (inCart) {
                         window.location.href = '/cart';
                       } else {
+                        if (!isAuthenticated) {
+                          navigate('/login', { state: { from: location.pathname } });
+                          return;
+                        }
                         addToCart(game, 1);
                       }
                     }}
@@ -385,13 +393,12 @@ export default function GameDetail() {
                   </button>
 
                   {/* Wishlist Button */}
-                  <button 
+                  <button
                     onClick={() => toggleWishlist(game)}
-                    className={`w-full font-bold py-3 px-4 rounded mb-4 transition-colors flex items-center justify-center gap-2 ${
-                      inWishlist
+                    className={`w-full font-bold py-3 px-4 rounded mb-4 transition-colors flex items-center justify-center gap-2 ${inWishlist
                         ? 'bg-white text-black hover:bg-gray-200'
                         : 'bg-[#2a2a2a] hover:bg-[#3a3a3a] text-white'
-                    }`}
+                      }`}
                   >
                     <Heart size={18} className={inWishlist ? 'fill-current' : ''} />
                     {inWishlist ? 'İstek Listesinde' : 'İstek Listesine Ekle'}

@@ -3,16 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { Bookmark, BookmarkCheck, ShoppingCart } from "lucide-react";
 import { useWishlist } from '@/contexts/WishlistContext';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { useLocation } from 'react-router-dom';
 
 export default function GameCard({ game }) {
   const wishlistContext = useWishlist();
   const isInWishlist = wishlistContext?.isInWishlist || (() => false);
-  const toggleWishlist = wishlistContext?.toggleWishlist || (() => {});
+  const toggleWishlist = wishlistContext?.toggleWishlist || (() => { });
   const inWishlist = isInWishlist(game.gameId);
   const cartContext = useCart();
   const isInCart = cartContext?.isInCart || (() => false);
-  const addToCart = cartContext?.addToCart || (() => {});
+  const addToCart = cartContext?.addToCart || (() => { });
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
 
   const handleWishlistClick = (e) => {
     e.preventDefault();
@@ -26,6 +30,10 @@ export default function GameCard({ game }) {
     if (isInCart(game.gameId)) {
       navigate('/cart');
     } else {
+      if (!isAuthenticated) {
+        navigate('/login', { state: { from: location.pathname } });
+        return;
+      }
       addToCart(game, 1);
     }
   };
@@ -35,13 +43,12 @@ export default function GameCard({ game }) {
       <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-3 bg-[#202020]">
         <img src={game.media?.coverImage} alt={game.title} className="h-full object-cover transition-opacity duration-300 group-hover:opacity-90" />
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button 
+          <button
             onClick={handleWishlistClick}
-            className={`p-1.5 rounded-full transition-colors ${
-              inWishlist 
-                ? 'bg-white text-black hover:bg-gray-200' 
+            className={`p-1.5 rounded-full transition-colors ${inWishlist
+                ? 'bg-white text-black hover:bg-gray-200'
                 : 'bg-black/70 text-white hover:bg-black'
-            }`}
+              }`}
             title={inWishlist ? 'İstek listesinden kaldır' : 'İstek listesine ekle'}
           >
             {inWishlist ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}

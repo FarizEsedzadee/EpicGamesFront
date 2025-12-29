@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Thumbs, Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import { FiGift, FiBookmark } from 'react-icons/fi';
 import { GameService } from '@/services/Services';
-import 'swiper/css';
-import 'swiper/css/thumbs';
-import 'swiper/css/effect-fade';
 
+import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 export default function HeroSection() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -16,39 +15,38 @@ export default function HeroSection() {
     const [loading, setLoading] = useState(true);
     const [activeIndex, setActiveIndex] = useState(0);
     const [progress, setProgress] = useState(0);
+
     const navigate = useNavigate();
-    const clickTimeouts = useRef({});
     const AUTOPLAY_DELAY = 4000;
 
     useEffect(() => {
         let mounted = true;
+
         (async () => {
             try {
                 const res = await GameService.getAllGames();
                 if (mounted) {
-                    // Sort by rating descending and take only top 3
-                    const sortedGames = (res || [])
-                        .sort((a, b) => (b.rating || 0) - (a.rating || 0))
-                        .slice(0, 3);
-                    setGames(sortedGames);
+                    const sorted = (res || [])
+                        .sort((a, b) => (a.popularityRank || 999) - (b.popularityRank || 999))
+                        .slice(0, 6);
+                    setGames(sorted);
                 }
             } catch (err) {
-                console.error('HeroSection fetch error:', err);
+                console.error(err);
             } finally {
                 if (mounted) setLoading(false);
             }
         })();
 
-        return () => {
-            mounted = false;
-        };
+        return () => (mounted = false);
     }, []);
 
-    // Progress bar animation
+    /* Progress bar */
     useEffect(() => {
         if (!mainSwiper || loading) return;
 
         setProgress(0);
+<<<<<<< HEAD
         let startTime = Date.now();
 
         const interval = setInterval(() => {
@@ -62,87 +60,96 @@ export default function HeroSection() {
                 setProgress(newProgress);
             }
         }, 16); // ~60fps
+=======
+        const start = Date.now();
+
+        const interval = setInterval(() => {
+            const elapsed = Date.now() - start;
+            const value = (elapsed / AUTOPLAY_DELAY) * 100;
+            setProgress(value >= 100 ? 100 : value);
+            if (value >= 100) clearInterval(interval);
+        }, 16);
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
 
         return () => clearInterval(interval);
     }, [activeIndex, mainSwiper, loading]);
+
+    const formatPrice = (value, currency = 'USD') => {
+        if (value == null) return '';
+        try {
+            let currencyCode = 'USD';
+            if (typeof currency === 'string') {
+                const t = currency.trim();
+                if (/^[A-Za-z]{3}$/.test(t)) currencyCode = t.toUpperCase();
+                else if (t.includes('$')) currencyCode = 'USD';
+                else if (t.includes('₺') || /^TRY$/i.test(t)) currencyCode = 'TRY';
+                else if (t.includes('€') || /^EUR$/i.test(t)) currencyCode = 'EUR';
+                else if (t.includes('£') || /^GBP$/i.test(t)) currencyCode = 'GBP';
+            }
+            return new Intl.NumberFormat('tr-TR', { style: 'currency', currency: currencyCode }).format(value);
+        } catch (e) {
+            return `${value} ${currency || ''}`.trim();
+        }
+    };
 
     const handleThumbClick = (game, index, e) => {
         e.preventDefault();
         e.stopPropagation();
 
+<<<<<<< HEAD
         // If clicking a different slide, switch to that slide
+=======
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
         if (index !== activeIndex) {
-            if (mainSwiper && !mainSwiper.destroyed) {
-                mainSwiper.slideTo(index);
-                // Reset autoplay
-                if (mainSwiper.autoplay) {
-                    mainSwiper.autoplay.stop();
-                    mainSwiper.autoplay.start();
-                }
-            }
-            // Update thumb swiper to show active state visually
-            if (thumbsSwiper && !thumbsSwiper.destroyed) {
-                thumbsSwiper.slideTo(index, 0); // 0 = no animation
-            }
+            mainSwiper?.slideTo(index);
+            mainSwiper?.autoplay?.start();
+            thumbsSwiper?.slideTo(index, 0);
             return;
         }
 
+<<<<<<< HEAD
         // If clicking the already active slide, navigate to game detail
         if (index === activeIndex && game.gameId) {
             navigate(`/game/${game.gameId}`);
         }
+=======
+        if (game.gameId) navigate(`/game/${game.gameId}`);
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
     };
 
-    const formatPrice = (value, currency = 'USD') => {
-        if (value === null || value === undefined) return '';
-        try {
-            return new Intl.NumberFormat('tr-TR', { style: 'currency', currency }).format(value);
-        } catch (e) {
-            return `${value} ${currency}`;
-        }
-    };
     return (
-        <div className="flex items-center justify-center font-normal">
-            <div className="w-full h-[400px] md:h-[500px] 2xl:h-[600px] flex flex-col md:flex-row gap-4">
+        <div className="flex justify-center">
+            <div className="w-full h-[380px] md:h-[500px] 2xl:h-[600px] flex gap-4">
 
-                <div className="flex-1 h-full w-full overflow-hidden rounded-2xl relative bg-[#202020]">
+                {/* MAIN SLIDER */}
+                <div className="flex-1 relative overflow-hidden rounded-2xl bg-[#202020]">
                     <Swiper
                         onSwiper={setMainSwiper}
-                        onSlideChange={(swiper) => {
-                            setActiveIndex(swiper.activeIndex);
-                            setProgress(0); // Reset progress on slide change
-                            // Update thumb swiper to show active state
-                            if (thumbsSwiper && !thumbsSwiper.destroyed) {
-                                thumbsSwiper.slideTo(swiper.activeIndex);
-                            }
+                        onSlideChange={(s) => {
+                            setActiveIndex(s.activeIndex);
+                            setProgress(0);
+                            thumbsSwiper?.slideTo(s.activeIndex);
                         }}
-                        spaceBetween={0}
+                        effect="fade"
                         modules={[Autoplay, EffectFade]}
-                        effect={'fade'}
-                        fadeEffect={{ crossFade: true }}
-                        autoplay={{
-                            delay: AUTOPLAY_DELAY,
-                            disableOnInteraction: false,
-                        }}
-                        className="h-full w-full rounded-2xl"
+                        autoplay={{ delay: AUTOPLAY_DELAY, disableOnInteraction: false }}
+                        className="h-full"
                     >
                         {loading ? (
-                            <SwiperSlide>
-                                <div className="flex items-center justify-center w-full h-full text-white">Yükleniyor...</div>
+                            <SwiperSlide className="flex items-center justify-center text-white">
+                                Yükleniyor...
                             </SwiperSlide>
                         ) : (
                             games.map((game) => (
-                                <SwiperSlide key={game.gameId || game.id} className="relative h-full w-full">
-                                    <div className="absolute inset-0 w-full h-full">
-                                        <img
-                                            src={game.media.bannerImage || ''}
-                                            alt={game.title}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90 z-10" />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/60 via-transparent to-transparent z-10" />
-                                    </div>
+                                <SwiperSlide key={game.gameId}>
+                                    {/* IMAGE */}
+                                    <img
+                                        src={game.media.bannerImage}
+                                        alt={game.title}
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                    />
 
+<<<<<<< HEAD
                                     {/* Mətn Hissəsi */}
                                     <div className="absolute bottom-4 md:bottom-10 left-4 md:left-15 max-w-full md:max-w-[480px] z-20 text-white flex flex-col items-start">
 
@@ -201,10 +208,73 @@ export default function HeroSection() {
                                                     </div>
                                                 );
                                             })()}
+=======
+                                    {/* OVERLAYS */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent md:hidden z-10" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent z-10" />
+
+                                    {/* CONTENT */}
+                                    <div className="
+                    absolute z-20
+                    bottom-5 md:bottom-10
+                    left-4 md:left-14
+                    max-w-[90%] md:max-w-[480px]
+                    text-white
+                  ">
+
+                                        {/* LOGO */}
+                                        {game.media.titleImage && (
+                                            <img
+                                                src={game.media.titleImage}
+                                                className="w-[140px] md:w-[240px] mb-2 md:mb-4"
+                                            />
+                                        )}
+
+                                        {/* PROMO */}
+                                        <div className="
+                      text-[10px] md:text-[12px]
+                      uppercase tracking-[0.12em]
+                      font-semibold
+                      text-gray-300
+                      mb-2
+                    ">
+                                            {game.promoText}
+                                        </div>
+
+                                        {/* DESCRIPTION */}
+                                        <p className="
+                      text-[13px] md:text-[15px]
+                      text-gray-300
+                      leading-[1.45]
+                      mb-3 md:mb-5
+                      line-clamp-2 md:line-clamp-none
+                    ">
+                                            {game.description}
+                                        </p>
+
+                                        {/* PRICE */}
+                                        <div className="flex items-center gap-2 text-[12px] md:text-[14px] mb-3 md:mb-5">
+                                            {game.price?.discountRate > 0 && (
+                                                <>
+                                                    <span className="bg-blue-500 px-2 py-0.5 rounded-full text-[10px] font-semibold">
+                                                        -{game.price.discountRate}%
+                                                    </span>
+                                                    <span className="line-through text-gray-400">
+                                                        {formatPrice(game.price.original, game.price.currency)}
+                                                    </span>
+                                                </>
+                                            )}
+                                            <span className="font-medium">
+                                                {game.isFree
+                                                    ? 'Ücretsiz'
+                                                    : formatPrice(game.price?.current, game.price?.currency)}
+                                            </span>
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
                                         </div>
 
                                         {/* BUTTONS */}
                                         <div className="flex items-center gap-2 md:gap-3">
+<<<<<<< HEAD
 
                                             {/* BUY / CLAIM BUTTON */}
                                             {game.gameId && (
@@ -236,26 +306,57 @@ export default function HeroSection() {
                            rounded-lg border border-white/10 backdrop-blur-sm">
                                                 <FiBookmark size={16} className="md:w-5 md:h-5 text-white opacity-80" />
                                             </button>
+=======
+                                            <Link
+                                                to={`/game/${game.gameId}`}
+                                                className="
+                          bg-white text-black
+                          px-5 md:px-8
+                          py-2.5 md:py-3.5
+                          rounded-lg
+                          text-[13px] md:text-[15px]
+                          font-semibold
+                          hover:bg-gray-200
+                        "
+                                            >
+                                                {game.isFree ? 'Ücretsiz' : 'Hemen Satın Al'}
+                                            </Link>
+
+                                            {[FiGift, FiBookmark].map((Icon, i) => (
+                                                <button
+                                                    key={i}
+                                                    className="
+                            w-[40px] h-[40px] md:w-[48px] md:h-[48px]
+                            flex items-center justify-center
+                            bg-[#2f2f2f]/80
+                            hover:bg-[#2f2f2f]
+                            rounded-lg
+                            border border-white/10
+                          "
+                                                >
+                                                    <Icon size={18} />
+                                                </button>
+                                            ))}
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
                                         </div>
                                     </div>
-
                                 </SwiperSlide>
                             ))
                         )}
                     </Swiper>
                 </div>
 
-                <div className="hidden md:block w-[280px] h-full overflow-hidden">
+                {/* THUMBNAILS (DESKTOP) */}
+                <div className="hidden md:block w-[280px]">
                     <Swiper
                         onSwiper={setThumbsSwiper}
                         direction="vertical"
-                        spaceBetween={10}
                         slidesPerView={5}
+                        spaceBetween={10}
                         allowTouchMove={false}
-                        allowSlideNext={false}
-                        allowSlidePrev={false}
-                        className="h-full thumb-swiper"
+                        className="h-full"
                     >
+<<<<<<< HEAD
                         {loading ? (
                             <SwiperSlide>
                                 <div className="flex items-center justify-center h-full text-gray-400">Yükleniyor...</div>
@@ -304,6 +405,34 @@ export default function HeroSection() {
                                 );
                             })
                         )}
+=======
+                        {games.map((game, index) => {
+                            const active = index === activeIndex;
+                            return (
+                                <SwiperSlide key={game.gameId}>
+                                    <div
+                                        onClick={(e) => handleThumbClick(game, index, e)}
+                                        className={`
+                      flex items-center gap-3 p-3 rounded-xl cursor-pointer
+                      ${active ? 'bg-[#2a2a2a]' : 'hover:bg-[#2a2a2a]'}
+                    `}
+                                    >
+                                        <img
+                                            src={game.media.bannerImage}
+                                            className="w-12 h-16 rounded object-cover"
+                                        />
+                                        <span className={`${active ? 'text-white' : 'text-gray-400'}`}>
+                                            {game.title}
+                                        </span>
+
+                                        {active && (
+                                            <div className="absolute bottom-0 left-0 h-[2px] bg-white" style={{ width: `${progress}%` }} />
+                                        )}
+                                    </div>
+                                </SwiperSlide>
+                            );
+                        })}
+>>>>>>> 8a6f95e32847980bae385da073e6f4026190d343
                     </Swiper>
                 </div>
 
